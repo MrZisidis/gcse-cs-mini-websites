@@ -26,13 +26,25 @@
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-teal-700">GCSE Python Revision</h1>
+            <!-- Breadcrumbs (Top-left) -->
+            <div class="flex items-center gap-2 text-sm text-stone-600">
+                <a href="./" class="inline-flex items-center text-teal-700 hover:text-teal-800 font-semibold" aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
+                <span class="text-stone-300">/</span>
+                <a href="./#projects" class="hover:text-teal-700">Projects</a>
+                <span class="text-stone-300">/</span>
+                <span class="text-stone-800 font-semibold">Lists & Sorting</span>
+            </div>
+            <!-- In-page section links (Right) -->
             <div class="space-x-4">
                 <a href="#lists" class="text-stone-600 hover:text-teal-600">List Basics</a>
                 <a href="#mergesort" class="text-stone-600 hover:text-teal-600">Merge Sort</a>
                 <a href="#sorting" class="text-stone-600 hover:text-teal-600">Bubble Sort</a>
             </div>
         </nav>
+        <!-- Accessible page title for screen readers -->
+        <h1 class="sr-only">Interactive Python Revision: Lists & Sorting</h1>
     </header>
 
     <main class="container mx-auto px-6 py-12">
@@ -41,7 +53,7 @@
         <section id="lists" class="mb-20">
             <h2 class="text-3xl font-bold mb-4">1. Python Lists: An Interactive Playground</h2>
             <p class="text-lg text-stone-600 mb-8">
-                In Python, a **list** is a powerful tool for storing an ordered collection of items. Below, you'll find a detailed explanation of key list operations like indexing, negative indexing, and slicing. Once you've reviewed the theory, use the interactive playground to experiment and solidify your understanding.
+                In Python, a <strong>list</strong> is a powerful tool for storing an ordered collection of items. Below, you'll find a detailed explanation of key list operations like indexing, negative indexing, and slicing. Once you've reviewed the theory, use the interactive playground to experiment and solidify your understanding.
             </p>
 
             <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200 mb-8">
@@ -49,7 +61,7 @@
                 
                 <div>
                     <h4 class="text-xl font-semibold mb-2">Accessing Elements (Indexing)</h4>
-                    <p class="mb-2 text-stone-600">You access list items using their index in square brackets `[]`. Remember, Python indexing starts at <strong class="font-semibold">0</strong> for the first item.</p>
+                    <p class="mb-2 text-stone-600">You access list items using their index in square brackets <code>[]</code>. Remember, Python indexing starts at <strong class="font-semibold">0</strong> for the first item.</p>
                     <pre class="bg-gray-800 text-white p-4 rounded-md font-mono text-sm"><code>scores = [85, 92, 78, 88, 95]
 # Get the first score (at index 0)
 first_score = scores[0]  # Result: 85
@@ -71,7 +83,7 @@ second_last = scores[-2] # Result: 88</code></pre>
             
                 <div class="mt-6">
                     <h4 class="text-xl font-semibold mb-2">Slicing a List</h4>
-                    <p class="mb-2 text-stone-600">Slicing lets you get a sub-section (a new list) from an existing list. The syntax is `my_list[start:stop]`. The `start` index is inclusive, and the `stop` index is exclusive (it goes up to, but does not include, the `stop` index).</p>
+                    <p class="mb-2 text-stone-600">Slicing lets you get a sub-section (a new list) from an existing list. The syntax is <code>my_list[start:stop]</code>. The <code>start</code> index is inclusive, and the <code>stop</code> index is exclusive (it goes up to, but does not include, the <code>stop</code> index).</p>
                     <pre class="bg-gray-800 text-white p-4 rounded-md font-mono text-sm"><code>scores = [85, 92, 78, 88, 95, 100]
 # Get items from index 1 up to (but not including) index 4
 middle_scores = scores[1:4]  # Result: [92, 78, 88]
@@ -187,7 +199,7 @@ from_third = scores[3:]      # Result: [88, 95, 100]</code></pre>
             
             <div class="mt-12 bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg">
                 <h3 class="text-xl font-bold mb-2">Revision Task & Key Takeaway</h3>
-                <p class="text-stone-700">Use the "Load Sorted" button and run the visualizer. Notice how the Standard Sort completes many unnecessary passes, while the Efficient Sort stops after just one. The flag allows the algorithm to know when its job is done. This is a fundamental concept in writing efficient code: **avoid doing unnecessary work!**</p>
+                <p class="text-stone-700">Use the "Load Sorted" button and run the visualizer. Notice how the Standard Sort completes many unnecessary passes, while the Efficient Sort stops after just one. The flag allows the algorithm to know when its job is done. This is a fundamental concept in writing efficient code: <strong>avoid doing unnecessary work!</strong></p>
             </div>
         </section>
 
@@ -542,4 +554,3 @@ from_third = scores[3:]      # Result: [88, 95, 100]</code></pre>
     </script>
 </body>
 </html>
-
