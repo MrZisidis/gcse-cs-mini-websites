@@ -9,8 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Harmony -->
-    <!-- Application Structure Plan: A single-page, vertically-scrolling application with a top navigation bar. The structure mirrors the source document's three parts but transforms static questions into interactive cards with instant feedback. This is chosen for its simplicity and directness, allowing students to progressively work through the review material in a familiar order while enhancing engagement through interactivity. Part 3 uses a guided approach with a final code reveal, focusing on reinforcing logical steps in a browser-based environment. -->
-    <!-- Visualization & Content Choices: Binary/Theory Questions -> Inform -> Interactive input fields -> "Check Answer" provides instant feedback -> Justification: Active recall is more effective than passive reading -> Vanilla JS. Truth Table -> Organize -> Clickable table cells -> Toggles boolean states, "Check" validates -> Justification: Interactive manipulation helps understand logical outcomes -> Vanilla JS. Code Comprehension -> Analyze -> Code block + input fields -> "Check" validates line numbers -> Justification: Tests specific knowledge directly -> Vanilla JS. Code Debugging -> Analyze -> Text area for user input -> "Reveal" button shows solution -> Justification: Encourages active problem-solving before providing the answer -> Vanilla JS. Coding Challenge -> Organize/Create -> Guided steps with final solution reveal -> Justification: Scaffolds the creation process, focusing on the role of each code piece -> Vanilla JS. -->
+    <!-- Structure: Added breadcrumb header (top-left), same style approach as Lists & Sorting page. Also added floating back-to-top button. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
@@ -52,6 +51,29 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
+
+    <!-- New sticky header with breadcrumbs (left) + section links (right) -->
+    <header class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Breadcrumbs (Top-left) -->
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+                <a href="./" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold" aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="./#projects" class="hover:text-sky-700">Projects</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-800 font-semibold">Yr10 Review</span>
+            </div>
+            <!-- In-page section links (Right) -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold">Part 1</a>
+                <a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold">Part 2</a>
+                <a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold">Part 3</a>
+            </nav>
+        </div>
+    </header>
+
     <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <header class="text-center py-12">
@@ -62,13 +84,7 @@
             </div>
         </header>
 
-        <nav class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-10 py-4 mb-12 border-b border-slate-200">
-            <ul class="flex justify-center space-x-4 md:space-x-8">
-                <li><a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold">Part 1: Theory</a></li>
-                <li><a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold">Part 2: Code Skills</a></li>
-                <li><a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold">Part 3: Challenge</a></li>
-            </ul>
-        </nav>
+        <!-- Removed old center-aligned sticky nav; replaced by the breadcrumb header above -->
 
         <main>
             <!-- Part 1: Theory Refresh -->
@@ -213,9 +229,9 @@ else
                     <p class="mb-6 text-slate-600">Follow the steps to build the quiz program. You can reveal a code skeleton if you need help getting started.</p>
                     <div class="space-y-4">
                         <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 1: Create Question & Answer Lists</h4><p class="text-slate-700">You need two lists to store your questions and the corresponding answers. The order is important!</p></div>
-                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 2: Ask the Questions</h4><p class="text-slate-700">A `for` loop is perfect for this. You need to iterate through the questions, print each one, and get the user's answer.</p></div>
-                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 3: Check the Answer and Keep Score</h4><p class="text-slate-700">Inside the loop, an `if` statement can compare the user's answer to the correct one. Remember to create a `score` variable before the loop starts.</p></div>
-                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 4: Display the Final Score</h4><p class="text-slate-700">After the loop finishes, a final `print` statement can show the user how well they did.</p></div>
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 2: Ask the Questions</h4><p class="text-slate-700">A <code>for</code> loop is perfect for this. You need to iterate through the questions, print each one, and get the user's answer.</p></div>
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 3: Check the Answer and Keep Score</h4><p class="text-slate-700">Inside the loop, an <code>if</code> statement can compare the user's answer to the correct one. Remember to create a <code>score</code> variable before the loop starts.</p></div>
+                        <div class="p-4 border-l-4 border-sky-500 bg-sky-50"><h4 class="font-bold">Step 4: Display the Final Score</h4><p class="text-slate-700">After the loop finishes, a final <code>print</code> statement can show the user how well they did.</p></div>
                     </div>
                     <div id="challenge-skeleton" class="hidden mt-8">
                         <h4 class="font-bold text-lg">Code Skeleton:</h4>
@@ -289,6 +305,9 @@ score = 0
             <p>&copy; 2025 CS Department. Welcome back!</p>
         </footer>
     </div>
+
+    <!-- Floating Back-to-Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-3 rounded-full shadow-lg hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" aria-label="Back to top">⬆️</button>
 
     <script>
         // Store results globally to be accessible by report generator
@@ -475,6 +494,18 @@ score = 0
             button.disabled = true;
         }
 
+        // Floating Back-to-Top button logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 240) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
