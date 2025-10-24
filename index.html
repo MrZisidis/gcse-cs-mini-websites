@@ -22,12 +22,12 @@
         </a>
       </h1>
 
-      <!-- Right-side nav: added GitHub icon next to repository link -->
+      <!-- Right-side nav: GitHub icon is now a small inline icon next to the 'Repository' text -->
       <nav class="hidden md:block">
         <ul class="flex items-center gap-6">
           <li><a href="#projects" class="text-slate-600 hover:text-sky-600 font-semibold">Projects</a></li>
 
-          <!-- Repository link with GitHub icon -->
+          <!-- Repository link with compact GitHub icon -->
           <li>
             <a
               href="https://github.com/MrZisidis/gcse-cs-mini-websites"
@@ -36,8 +36,8 @@
               rel="noopener noreferrer"
               target="_blank"
             >
-              <!-- GitHub mark (SVG) -->
-              <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <!-- Smaller GitHub mark (SVG) placed immediately before the label -->
+              <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                 <path fill-rule="evenodd"
                   d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
                   0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
@@ -48,8 +48,8 @@
                   .38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
               </svg>
 
-              <!-- On md+ screens show the text label; keep it accessible -->
-              <span class="hidden md:inline">Repository</span>
+              <!-- The label sits directly after the icon -->
+              <span>Repository</span>
             </a>
           </li>
         </ul>
