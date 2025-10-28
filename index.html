@@ -6,10 +6,15 @@
   <title>GCSE CS Mini Websites</title>
   <meta name="description" content="Mini websites for revision and homeworks for my GCSE CS Students" />
   <link rel="icon" href="/favicon.ico" />
-<script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Poppins font to match the provided style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* any existing styles */
+    body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -23,12 +28,10 @@
         </a>
       </h1>
 
-      <!-- Right-side nav: GitHub icon is now a small inline icon next to the 'Repository' text -->
+      <!-- Right-side nav -->
       <nav class="hidden md:block">
         <ul class="flex items-center gap-6">
           <li><a href="#projects" class="text-slate-600 hover:text-sky-600 font-semibold">Projects</a></li>
-
-          <!-- Repository link with compact GitHub icon -->
           <li>
             <a
               href="https://github.com/MrZisidis/gcse-cs-mini-websites"
@@ -37,7 +40,6 @@
               rel="noopener noreferrer"
               target="_blank"
             >
-              <!-- Smaller GitHub mark (SVG) placed immediately before the label -->
               <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                 <path fill-rule="evenodd"
                   d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
@@ -48,8 +50,6 @@
                   1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55
                   .38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
               </svg>
-
-              <!-- The label sits directly after the icon -->
               <span>Repository</span>
             </a>
           </li>
@@ -80,17 +80,74 @@
   <main id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Projects</h3>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Sample Card -->
-      <article class="bg-white p-6 rounded-lg shadow-md border border-slate-200 flex flex-col">
-        <h4 class="text-xl font-bold text-slate-900">Interactive Python Revision: Lists & Sorting</h4>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project: Interactive Python Revision -->
+      <article class="bg-white border border-slate-200 rounded-lg shadow-sm p-6 flex flex-col">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-xl font-bold text-slate-900">Interactive Python Revision: Lists & Sorting</h4>
+          <span class="text-2xl" aria-hidden="true">🐍</span>
+        </div>
         <p class="mt-2 text-slate-600">
           Hands-on list playground, Merge Sort step-by-step, and a side-by-side visual comparison of
-          standard vs efficient Bubble Sort. Tune speed, load presets, and observe efficiency in action.
+          standard vs efficient Bubble Sort.
         </p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>List operations playground</li>
+          <li>Merge Sort visual walkthrough</li>
+          <li>Bubble Sort vs Efficient Bubble Sort</li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="python-rev-lists-sorting.html" class="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white font-bold px-5 py-2.5 rounded-md transition" aria-label="Open Interactive Python Revision">
+            Open
+          </a>
+          <a href="python-rev-lists-sorting.html#lists" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold">
+            Jump to Lists
+          </a>
+        </div>
       </article>
 
-      <!-- Additional project cards... -->
+      <!-- Project: Log Analyser -->
+      <article class="bg-white border border-slate-200 rounded-lg shadow-sm p-6 flex flex-col">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-xl font-bold text-slate-900">Log Analyser</h4>
+          <span class="text-2xl" aria-hidden="true">📊</span>
+        </div>
+        <p class="mt-2 text-slate-600">
+          Explore and analyse sample logs to extract insights. Practice string handling, parsing,
+          counting and summarising data for revision.
+        </p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>Load and parse log lines</li>
+          <li>Filter, count, summarise</li>
+          <li>Practice data processing patterns</li>
+        </ul>
+        <div class="mt-6">
+          <a href="log_analyser.html" class="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white font-bold px-5 py-2.5 rounded-md transition" aria-label="Open Log Analyser">
+            Open
+          </a>
+        </div>
+      </article>
+
+      <!-- Project: Year 10 CS Review -->
+      <article class="bg-white border border-slate-200 rounded-lg shadow-sm p-6 flex flex-col">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-xl font-bold text-slate-900">Year 10 CS Review</h4>
+          <span class="text-2xl" aria-hidden="true">🧠</span>
+        </div>
+        <p class="mt-2 text-slate-600">
+          Quick revision of key GCSE CS topics with interactive checks and examples to reinforce understanding.
+        </p>
+        <ul class="mt-4 text-sm text-slate-600 list-disc pl-5 space-y-1">
+          <li>Key topic summaries</li>
+          <li>Interactive checks</li>
+          <li>Classroom-friendly layout</li>
+        </ul>
+        <div class="mt-6">
+          <a href="yr10-cs-review.html" class="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white font-bold px-5 py-2.5 rounded-md transition" aria-label="Open Year 10 CS Review">
+            Open
+          </a>
+        </div>
+      </article>
     </div>
   </main>
 
