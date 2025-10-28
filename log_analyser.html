@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <!-- Chosen Palette: Calm Harmony (Neutral, White, Teal) -->
-    <!-- Application Structure Plan: The SPA is structured as an interactive lesson guide. It uses a top navigation bar (tabs) to break the 'README.md' report into its logical sections (Mission, Part 1, Part 2, Part 3, Stretch Goals). This task-oriented, tabbed structure was chosen because the source report is a linear lesson plan, and this design allows students to easily navigate between steps, review previous parts, and focus on one set of tasks at a time. Navigation is handled by JS, which shows/hides the corresponding content 'page' for each tab. -->
+    <!-- Application Structure Plan: The SPA is structured as an interactive lesson guide. It uses a top navigation bar (tabs) to break the 'README.md' report into its logical sections (Mission, Resources, Part 1, Part 2, Part 3, Stretch Goals). This task-oriented, tabbed structure was chosen because the source report is a linear lesson plan. A 'Resources' tab was added to hold starter files, centralizing all materials. Navigation is handled by JS, which shows/hides the corresponding content 'page' for each tab. Copy-to-clipboard buttons are added for code blocks. -->
     <!-- Visualization & Content Choices: 
         - Report Info: Mission/Practices -> Goal: Inform -> Viz/Presentation: HTML list/text -> Interaction: Static text -> Justification: Clear intro -> Library/Method: HTML/Tailwind.
+        - Report Info: Starter Files (log_analyzer.py, web_logs.txt) -> Goal: Organize/Provide -> Viz/Presentation: HTML <pre><code> blocks -> Interaction: Show/hide via main nav tab, Copy-to-clipboard button -> Justification: Centralized, easy-to-copy resources for the lesson -> Library/Method: HTML/Tailwind/JS.
         - Report Info: Part 1 Tasks -> Goal: Organize -> Viz/Presentation: HTML ordered list -> Interaction: Show/hide via main nav tab -> Justification: Clear tasks for step 1 -> Library/Method: HTML/Tailwind/JS.
         - Report Info: Part 2 Tasks/Example -> Goal: Organize/Inform -> Viz/Presentation: HTML list + styled <pre> block -> Interaction: Show/hide via main nav tab -> Justification: Clear tasks and show formatted example -> Library/Method: HTML/Tailwind/JS.
         - Report Info: Part 3 Tasks/Example -> Goal: Organize/Inform -> Viz/Presentation: HTML list + styled <pre> block -> Interaction: Show/hide via main nav tab -> Justification: Clear tasks and show AI-augmented example -> Library/Method: HTML/Tailwind/JS.
@@ -12,7 +13,7 @@
         - No charts (Chart.js/Plotly.js) are used as the source report contains instructional text, not quantitative data to be visualized.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <meta charset="UTF-8">
+    <meta charset="UTF-g">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Log Analyzer</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,37 +43,34 @@
         .content-page.active {
             display: block;
         }
+        .copy-code-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #4b5563;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            z-index: 10;
+        }
+        .copy-code-button:hover {
+            background-color: #374151;
+        }
+        pre.with-copy-button {
+            padding-top: 3.5rem;
+            position: relative;
+        }
     </style>
 </head>
 <body class="bg-neutral-50 text-neutral-800 min-h-screen antialiased">
 
-    <!-- Sticky header so breadcrumb stays visible while scrolling -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-neutral-200">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <!-- Breadcrumbs (Top-left) -->
-            <div class="flex items-center gap-2 text-sm text-neutral-600">
-                <a href="./" class="inline-flex items-center text-teal-700 hover:text-teal-800 font-semibold" aria-label="Home">
-                    <span aria-hidden="true">🏠</span>
-                </a>
-                <span class="text-neutral-300">/</span>
-                <a href="./#projects" class="hover:text-teal-700">Projects</a>
-                <span class="text-neutral-300">/</span>
-                <span class="text-neutral-800 font-semibold">Log Analyzer</span>
-            </div>
-            <!-- In-page section links (Right) -->
-            <div class="space-x-5 hidden md:flex">
-                <a href="#mission" class="text-neutral-600 hover:text-teal-600">Mission</a>
-                <a href="#part1" class="text-neutral-600 hover:text-teal-600">Part 1</a>
-                <a href="#part2" class="text-neutral-600 hover:text-teal-600">Part 2</a>
-                <a href="#part3" class="text-neutral-600 hover:text-teal-600">Part 3</a>
-                <a href="#stretch" class="text-neutral-600 hover:text-teal-600">Stretch</a>
-            </div>
-        </nav>
-    </header>
-
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
-
-        <header class="text-center mb-8 mt-6">
+        
+        <header class="text-center mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-teal-800">Mini-Project: The AI-Powered Log Analyzer</h1>
             <p class="text-lg text-neutral-600 mt-2">Your 120-minute mission to build a smart security tool.</p>
         </header>
@@ -80,6 +78,9 @@
         <nav class="flex flex-wrap gap-2 justify-center mb-8" id="main-nav">
             <button class="nav-button active py-2 px-4 rounded-lg font-semibold" data-target="mission">
                 <span class="text-xl mr-2">🎯</span> Mission
+            </button>
+            <button class="nav-button py-2 px-4 rounded-lg font-semibold" data-target="resources">
+                <span class="text-xl mr-2">🗂️</span> Resources
             </button>
             <button class="nav-button py-2 px-4 rounded-lg font-semibold" data-target="part1">
                 <span class="text-xl mr-2">1️⃣</span> Part 1: Basic Scan
@@ -100,7 +101,7 @@
             <section id="mission" class="content-page active bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Your Mission</h2>
                 <p class="mb-4 text-lg">
-                    You are a junior security analyst. Your first task is to build a Python tool that can read a server's log file, find suspicious entries, and use AI to help you understand what [truncated for brevity]
+                    You are a junior security analyst. Your first task is to build a Python tool that can read a server's log file, find suspicious entries, and use AI to help you understand what they mean.
                 </p>
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">You will practice:</h3>
                 <ul class="list-none space-y-3">
@@ -123,17 +124,185 @@
                 </ul>
             </section>
 
+            <section id="resources" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
+                <h2 class="text-2xl font-bold text-teal-700 mb-4">Lesson Resources</h2>
+                <p class="mb-6 text-lg">
+                    Here are the starter files you'll need. Use the "Copy" button to save the content to your own local files (e.g., `log_analyzer.py` and `web_logs.txt`).
+                </p>
+
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-neutral-700 mb-3">`log_analyzer.py` (Starter Script)</h3>
+                    <div class="relative">
+                        <button class="copy-code-button" data-copy-target="#code-log-analyzer">Copy</button>
+                        <pre class="with-copy-button bg-neutral-800 text-neutral-100 p-4 rounded-lg overflow-x-auto"><code id="code-log-analyzer">import json
+import http.client # Using a built-in library
+
+# --- AI Function (Pre-written for you) ---
+
+async def get_ai_analysis(user_prompt):
+    """
+    Sends a prompt to the Gemini AI and returns its response.
+    """
+    print(f"Asking AI: {user_prompt}...")
+    try:
+        # Note: In a real app, you'd use a library like 'requests'
+        # but we'll use built-in ones to keep it simple.
+        
+        # This is the Gemini Flash model
+        model = "gemini-2.5-flash-preview-09-2025"
+        
+        # Leave this blank! The browser will handle the API key.
+        api_key = ""
+        
+        url = f"/v1beta/models/{model}:generateContent?key={api_key}"
+        
+        headers = {'Content-Type': 'application/json'}
+        
+        payload = {
+            "contents": [{
+                "parts": [{
+                    "text": user_prompt
+                }]
+            }]
+        }
+
+        # This part makes the web request
+        conn = http.client.HTTPSConnection("generativelanguage.googleapis.com")
+        conn.request("POST", url, json.dumps(payload), headers)
+        
+        response = conn.getresponse()
+        response_text = response.read().decode('utf-8')
+        
+        if response.status != 200:
+            print(f"Error from AI: {response.status} {response_text}")
+            return f"Error: Could not get AI analysis. Status: {response.status}"
+
+        result = json.loads(response_text)
+        
+        # Extract the text from the AI's response
+        text = result.get('candidates', [{}])[0] \
+                     .get('content', {}) \
+                     .get('parts', [{}])[0] \
+                     .get('text', 'AI response not found.')
+        
+        conn.close()
+        print("...AI replied.")
+        return text
+
+    except Exception as e:
+        print(f"An exception occurred: {e}")
+        return f"Error during AI call: {e}"
+
+# --- Main Project ---
+
+async def main():
+    """
+    This is the main function where your code will go.
+    """
+    
+    # Define file names
+    log_file = "web_logs.txt"
+    report_file = "report.txt"
+
+    # We'll clear the old report file first
+    with open(report_file, 'w') as f:
+        f.write("--- SUSPICIOUS LOG REPORT ---\n\n")
+
+    print(f"Starting log analysis of {log_file}...")
+
+    # --- TODO: PART 1 ---
+    # 1. Open 'log_file' for reading ('r').
+    # 2. Use a 'for' loop to read each 'line' in the file.
+    # 3. Check if the 'line' contains the string "ERROR" or "404".
+    # 4. If it does, open 'report_file' for *appending* ('a').
+    # 5. Write the 'line' to the 'report_file'.
+    #
+    # (Delete this comment block and add your code here)
+    #
+    # Example (to get you started):
+    # with open(log_file, 'r') as f_in:
+    #   for line in f_in:
+    #     if "ERROR" in line or "404" in line:
+    #       print(f"Found suspicious line: {line.strip()}")
+    #       # Now, add the code to write this to 'report_file'
+    
+    
+    # --- TODO: PART 2 (Optional: Modify your Part 1 code) ---
+    # 1. Inside your `if` statement, instead of writing the whole line,
+    #    try to .split() the line.
+    # 2. Extract the timestamp, type, and message.
+    # 3. Write these to 'report_file' in a nice format (see README).
+    #
+    # (Delete this comment block and add your code here)
+    
+
+    # --- TODO: PART 3 (Optional: Modify your Part 2 code) ---
+    # 1. After you extract the 'message' from the log line:
+    # 2. Create a 'prompt' string for the AI.
+    #    e.g., prompt = f"Explain this server error simply: {message}"
+    # 3. Call the AI function:
+    #    ai_comment = await get_ai_analysis(prompt)
+    # 4. Write the 'ai_comment' to your 'report_file'.
+    #
+    # (Delete this comment block and add your code here)
+
+
+    # --- End of your code ---
+    
+    print(f"Log analysis complete. Check {report_file} for results.")
+
+
+# This code runs the 'main' function
+if __name__ == "__main__":
+    import asyncio
+    # asyncio.run() is needed to run 'async' functions
+    try:
+        asyncio.run(main())
+    except Exception as e:
+        print(f"An error occurred in main: {e}")
+</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-neutral-700 mb-3">`web_logs.txt` (Sample Data)</h3>
+                    <div class="relative">
+                        <button class="copy-code-button" data-copy-target="#data-web-logs">Copy</button>
+                        <pre class="with-copy-button bg-neutral-800 text-neutral-100 p-4 rounded-lg overflow-x-auto"><code id="data-web-logs">[2024-10-24 10:50:01] INFO: 192.168.1.1 - GET /index.html
+[2024-10-24 10:50:02] INFO: 192.168.1.1 - GET /style.css
+[2024-10-24 10:51:15] INFO: 77.12.55.1 - GET /login
+[2024-10-24 10:51:16] WARN: 77.12.55.1 - POST /login - No CSRF token
+[2024-10-24 10:52:30] INFO: 192.168.1.1 - GET /images/logo.png
+[2024-10-24 10:53:01] ERROR: 50.112.0.1 - Failed login attempt for user 'admin'
+[2024-10-24 10:53:05] ERROR: 50.112.0.1 - Failed login attempt for user 'admin'
+[2024-10-24 10:53:10] ERROR: 50.112.0.1 - Failed login attempt for user 'admin'
+[2024-10-24 10:53:11] WARN: 50.112.0.1 - Account 'admin' locked due to too many failed attempts.
+[2024-10-24 10:54:00] INFO: 201.22.8.5 - GET /products
+[2024-10-24 10:55:01] INFO: 201.22.8.5 - GET /products/item?id=123
+[2024-10-24 10:55:02] INFO: 201.22.8.5 - GET /products/item?id=124
+[2024-10-24 10:55:10] ERROR: 104.25.11.2 - 404 Not Found - /admin/panel.php
+[2024-10-24 10:55:11] WARN: 104.25.11.2 - User attempted to access non-existent admin panel.
+[2024-10-24 10:56:00] INFO: 192.168.1.1 - GET /about-us
+[2024-10-24 10:57:30] ERROR: 15.115.10.9 - 404 Not Found - /wp-login.php
+[2024-10-24 10:58:01] ERROR: 99.12.13.14 - Possible SQL_INJECTION attempt: ' OR 1=1; --
+[2024-10-24 10:59:00] INFO: 77.12.55.1 - GET /dashboard
+[2024-10-24 10:59:05] INFO: 77.12.55.1 - POST /logout
+</code></pre>
+                    </div>
+                </div>
+            </section>
+
             <section id="part1" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Part 1: The Basic Scan (File I/O)</h2>
                 <p class="mb-4 text-lg">
-                    <strong>Goal:</strong> Read from `web_logs.txt` and write all "suspicious" lines to a new file called `report.txt`.
+                    <strong>Goal:</strong> Read from `web_logs.txt` (which you copied from the Resources tab) and write all "suspicious" lines to a new file called `report.txt`.
                 </p>
                 <p class="mb-6 text-base bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md">
                     For now, a "suspicious" line is any line that contains the word <strong class="font-semibold">`ERROR`</strong> or the code <strong class="font-semibold">`404`</strong>.
                 </p>
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">Your Tasks:</h3>
                 <ol class="list-decimal list-outside ml-6 space-y-3 text-base">
-                    <li>Open the `log_analyzer.py` file.</li>
+                    <li>Open the `log_analyzer.py` file you created.</li>
                     <li>Find the `TODO` comment for Part 1.</li>
                     <li>Write Python code to:
                         <ul class="list-disc list-outside ml-6 mt-2 space-y-2">
@@ -174,8 +343,8 @@
   Timestamp: [2024-10-24 10:53:01]
   Type: ERROR
   Message: Failed login attempt
- ------------------------------------
- </code></pre>
+------------------------------------
+</code></pre>
             </section>
 
             <section id="part3" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
@@ -203,9 +372,9 @@
   Timestamp: [2024-10-24 10:53:01]
   Type: ERROR
   Message: Failed login attempt
- ------------------------------------
-   >> AI ANALYSIS: This error indicates a user or bot tried to access an account with the wrong password.
- </code></pre>
+------------------------------------
+  >> AI ANALYSIS: This error indicates a user or bot tried to access an account with the wrong password.
+</code></pre>
             </section>
 
             <section id="stretch" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
@@ -217,7 +386,7 @@
                     <li><strong>More Keywords:</strong> Add more suspicious keywords (e.g., `403`, `DENIED`, `SQL_INJECTION`).</li>
                     <li><strong>Better Parsing:</strong> Use the `re` (regular expressions) library to parse the log lines more accurately.</li>
                     <li><strong>AI Prompting:</strong> Improve your prompt! Ask the AI to rate the "threat level" from 1 to 10.</li>
-                    <li><strong>Meme Generator:</strong> Try the *other* project idea. Use the `Pillow` library to write text on an image. Use the AI to generate a "funny caption for a cat pictur[...]</li>
+                    <li><strong>Meme Generator:</strong> Try the *other* project idea. Use the `Pillow` library to write text on an image. Use the AI to generate a "funny caption for a cat picture" and save it as `meme.jpg`.</li>
                 </ul>
             </section>
 
@@ -233,7 +402,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('main-nav');
             const navButtons = nav.querySelectorAll('.nav-button');
-            const contentPages = document.getElementById('content-container').querySelectorAll('.content-page');
+            const contentContainer = document.getElementById('content-container');
+            const contentPages = contentContainer.querySelectorAll('.content-page');
 
             nav.addEventListener('click', (e) => {
                 const targetButton = e.target.closest('.nav-button');
@@ -256,8 +426,53 @@
                     }
                 });
             });
+
+            contentContainer.addEventListener('click', (e) => {
+                const copyButton = e.target.closest('.copy-code-button');
+                if (copyButton) {
+                    const targetId = copyButton.dataset.copyTarget;
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (!targetElement) {
+                        console.error('Copy target not found:', targetId);
+                        return;
+                    }
+
+                    const textToCopy = targetElement.innerText;
+                    
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    textArea.style.position = 'fixed';
+                    textArea.style.top = '-9999px';
+                    textArea.style.left = '-9999px';
+                    document.body.appendChild(textArea);
+                    
+                    textArea.select();
+                    textArea.focus();
+                    
+                    try {
+                        document.execCommand('copy');
+                        const originalText = copyButton.textContent;
+                        copyButton.textContent = 'Copied!';
+                        copyButton.disabled = true;
+                        setTimeout(() => {
+                            copyButton.textContent = originalText;
+                            copyButton.disabled = false;
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy text:', err);
+                        copyButton.textContent = 'Failed!';
+                         setTimeout(() => {
+                            copyButton.textContent = 'Copy';
+                        }, 2000);
+                    }
+                    
+                    document.body.removeChild(textArea);
+                }
+            });
         });
     </script>
 
 </body>
 </html>
+
