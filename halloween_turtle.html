@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
+
         .boolean-cell {
             cursor: pointer;
             user-select: none;
@@ -23,15 +25,18 @@
             font-weight: 600;
             min-width: 80px;
         }
+
         .boolean-cell:not(.selected) {
             color: #9ca3af;
         }
+
         pre {
             white-space: pre-wrap;
             word-wrap: break-word;
         }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800">
 
     <!-- Sticky header -->
@@ -47,30 +52,36 @@
                 <a href="#partA" class="text-slate-600 hover:text-sky-600 font-semibold">Part A</a>
                 <a href="#partB" class="text-slate-600 hover:text-sky-600 font-semibold">Part B</a>
                 <a href="#check" class="text-slate-600 hover:text-sky-600 font-semibold">Check</a>
+                <a href="python_playground.html"
+                    class="text-sky-600 hover:text-sky-800 font-semibold border-l pl-6 border-slate-300">Python
+                    Playground 🐍</a>
             </nav>
         </div>
     </header>
 
     <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <header class="text-center py-12">
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900">🕸️ The Spooky Spiderweb Challenge</h1>
             <p class="mt-4 text-lg text-slate-600">Follow the tasks, then check your understanding at the bottom!</p>
             <div class="mt-6 max-w-md mx-auto">
-                <input type="text" id="student-name" class="w-full p-3 border border-slate-300 rounded-md shadow-sm" placeholder="Enter your full name for the report...">
+                <input type="text" id="student-name" class="w-full p-3 border border-slate-300 rounded-md shadow-sm"
+                    placeholder="Enter your full name for the report...">
             </div>
         </header>
 
         <main>
             <!-- Part 1: Introduction to Turtle -->
             <section id="intro" class="mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Part 1: Understanding Python Turtle 🐢</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Part 1: Understanding Python Turtle 🐢
+                </h2>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">Method 1: The "Global" Turtle</h3>
-                        <p class="mb-4 text-slate-600">This method is quick for simple drawings. You import the whole module and call functions like `turtle.forward()`.</p>
+                        <p class="mb-4 text-slate-600">This method is quick for simple drawings. You import the whole
+                            module and call functions like `turtle.forward()`.</p>
                         <div class="bg-slate-800 text-white p-4 rounded-md mb-4 text-sm font-mono">
-<pre>
+                            <pre>
 import turtle
 
 turtle.forward(100)
@@ -81,14 +92,16 @@ turtle.forward(50)
 turtle.done()
 </pre>
                         </div>
-                        <p class="text-slate-700">You are using a single, built-in turtle. This is fine, but can be confusing if you want multiple turtles on the screen.</p>
+                        <p class="text-slate-700">You are using a single, built-in turtle. This is fine, but can be
+                            confusing if you want multiple turtles on the screen.</p>
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">Method 2: The Turtle "Object" (Instance)</h3>
-                        <p class="mb-4 text-slate-600">This is the method we use. You create a *new* turtle object (we call ours `t`) from the `turtle.Turtle()` blueprint.</p>
+                        <p class="mb-4 text-slate-600">This is the method we use. You create a *new* turtle object (we
+                            call ours `t`) from the `turtle.Turtle()` blueprint.</p>
                         <div class="bg-slate-800 text-white p-4 rounded-md mb-4 text-sm font-mono">
-<pre>
+                            <pre>
 import turtle
 
 # Create a new Turtle object
@@ -102,7 +115,8 @@ t.forward(50)
 turtle.done()
 </pre>
                         </div>
-                        <p class="text-slate-700">This is much more powerful. You could create `t2 = turtle.Turtle()` and have a *second* independent turtle!</p>
+                        <p class="text-slate-700">This is much more powerful. You could create `t2 = turtle.Turtle()`
+                            and have a *second* independent turtle!</p>
                     </div>
                 </div>
             </section>
@@ -111,7 +125,8 @@ turtle.done()
             <section id="review" class="mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">⚙️ Essential Turtle Commands</h2>
                 <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 max-w-3xl mx-auto">
-                    <p class="mb-4 text-slate-600">To complete this challenge, you will be using your Turtle object named `t`. Review these key commands:</p>
+                    <p class="mb-4 text-slate-600">To complete this challenge, you will be using your Turtle object
+                        named `t`. Review these key commands:</p>
                     <table class="w-full border-collapse">
                         <thead>
                             <tr class="bg-slate-100">
@@ -120,31 +135,58 @@ turtle.done()
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.speed(0)</td><td class="p-2 border border-slate-300">Sets the turtle to the fastest speed.</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.home()</td><td class="p-2 border border-slate-300">Moves the turtle instantly to the origin (0, 0).</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.setheading(angle)</td><td class="p-2 border border-slate-300">Sets the direction (0=East, 90=North).</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.forward(dist)</td><td class="p-2 border border-slate-300">Moves the turtle forward.</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.backward(dist)</td><td class="p-2 border border-slate-300">Moves the turtle backward.</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.right(angle)</td><td class="p-2 border border-slate-300">Turns the turtle clockwise.</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.penup()</td><td class="p-2 border border-slate-300">Lifts the pen (no drawing).</td></tr>
-                            <tr><td class="p-2 border border-slate-300 font-mono">t.pendown()</td><td class="p-2 border border-slate-300">Lowers the pen (drawing active).</td></tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.speed(0)</td>
+                                <td class="p-2 border border-slate-300">Sets the turtle to the fastest speed.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.home()</td>
+                                <td class="p-2 border border-slate-300">Moves the turtle instantly to the origin (0, 0).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.setheading(angle)</td>
+                                <td class="p-2 border border-slate-300">Sets the direction (0=East, 90=North).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.forward(dist)</td>
+                                <td class="p-2 border border-slate-300">Moves the turtle forward.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.backward(dist)</td>
+                                <td class="p-2 border border-slate-300">Moves the turtle backward.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.right(angle)</td>
+                                <td class="p-2 border border-slate-300">Turns the turtle clockwise.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.penup()</td>
+                                <td class="p-2 border border-slate-300">Lifts the pen (no drawing).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 border border-slate-300 font-mono">t.pendown()</td>
+                                <td class="p-2 border border-slate-300">Lowers the pen (drawing active).</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
-            
+
             <!-- Part 3: Challenge Part A -->
             <section id="partA" class="mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Part A: The Radial Spokes 🕸️</h2>
                 <div class="bg-white p-8 rounded-lg shadow-md border border-slate-200 max-w-4xl mx-auto">
                     <h3 class="font-bold text-xl mb-2">Task A.1: Define the `draw_spoke` function</h3>
-                    <p class="mb-4 text-slate-600">Write a function that draws one spoke (a line of length 150), starting and ending at the origin (0, 0).</p>
+                    <p class="mb-4 text-slate-600">Write a function that draws one spoke (a line of length 150),
+                        starting and ending at the origin (0, 0).</p>
                     <h3 class="font-bold text-xl mb-2">Task A.2: Use a simple loop to draw the web framework</h3>
-                    <p class="mb-6 text-slate-600">Use a `for` loop to repeat the `draw_spoke` function 8 times, turning 45° each time, to create the radial lines of the web.</p>
-                    
+                    <p class="mb-6 text-slate-600">Use a `for` loop to repeat the `draw_spoke` function 8 times, turning
+                        45° each time, to create the radial lines of the web.</p>
+
                     <h4 class="font-semibold text-lg">Skeleton Code:</h4>
                     <div class="bg-slate-800 text-white p-4 rounded-md mt-2 text-sm font-mono">
-<pre>
+                        <pre>
 import turtle
 screen = turtle.Screen()
 screen.setup(width=600, height=600)
@@ -176,9 +218,10 @@ turtle.done()
                     </div>
 
                     <h4 class="font-semibold text-lg mt-8">Example Solution & Visual:</h4>
-                    <p class="mb-4 text-slate-600">If you complete Part A correctly, your code for the main program area should look like this, and your output will show 8 spokes.</p>
+                    <p class="mb-4 text-slate-600">If you complete Part A correctly, your code for the main program area
+                        should look like this, and your output will show 8 spokes.</p>
                     <div class="bg-sky-50 border border-sky-200 p-4 rounded-md mt-2 text-sm font-mono">
-<pre>
+                        <pre>
 # --- MAIN PROGRAM AREA (Start of the Web) ---
 
 N = 8
@@ -194,7 +237,9 @@ turtle.done()
 </pre>
                     </div>
                     <div class="text-center mt-4">
-                        <img src="https://placehold.co/400x400/000000/FFFFFF?text=Visual+Output:%0A8+White+Spokes%0Aon+Black+Background" alt="8 spokes of a spiderweb radiating from the center on a black background" class="w-full max-w-sm mx-auto border border-slate-300 rounded-md shadow-sm">
+                        <img src="https://placehold.co/400x400/000000/FFFFFF?text=Visual+Output:%0A8+White+Spokes%0Aon+Black+Background"
+                            alt="8 spokes of a spiderweb radiating from the center on a black background"
+                            class="w-full max-w-sm mx-auto border border-slate-300 rounded-md shadow-sm">
                         <p class="text-sm text-slate-500 mt-2">Visual Output for Part A</p>
                     </div>
                 </div>
@@ -205,11 +250,13 @@ turtle.done()
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Part B: The Concentric Rings 🎯</h2>
                 <div class="bg-white p-8 rounded-lg shadow-md border border-slate-200 max-w-4xl mx-auto">
                     <h3 class="font-bold text-xl mb-2">Task B.1: Draw the Rings</h3>
-                    <p class="mb-6 text-slate-600">After your code for Part A, add a new loop to draw 5 concentric rings (circles). The size of the circle depends on the ring number. The web has a max radius of 150. To draw 5 rings, they should be 30 units apart (150 / 5 = 30).</p>
-                    
+                    <p class="mb-6 text-slate-600">After your code for Part A, add a new loop to draw 5 concentric rings
+                        (circles). The size of the circle depends on the ring number. The web has a max radius of 150.
+                        To draw 5 rings, they should be 30 units apart (150 / 5 = 30).</p>
+
                     <h4 class="font-semibold text-lg">Ring Drawing Logic (Add this *after* your Part A loop):</h4>
                     <div class="bg-slate-800 text-white p-4 rounded-md mt-2 text-sm font-mono">
-<pre>
+                        <pre>
 # --- RING DRAWING AREA (Part B) ---
 num_rings = 5
 max_radius = 150
@@ -238,9 +285,10 @@ t.dot(20, "orange")
                     </div>
 
                     <h4 class="font-semibold text-lg mt-8">Example Solution & Visual:</h4>
-                    <p class="mb-4 text-slate-600">Here is the completed code for the rings. This creates the final spiderweb.</p>
+                    <p class="mb-4 text-slate-600">Here is the completed code for the rings. This creates the final
+                        spiderweb.</p>
                     <div class="bg-sky-50 border border-sky-200 p-4 rounded-md mt-2 text-sm font-mono">
-<pre>
+                        <pre>
 # --- RING DRAWING AREA (Part B) ---
 num_rings = 5
 max_radius = 150
@@ -267,12 +315,14 @@ turtle.done()
 </pre>
                     </div>
                     <div class="text-center mt-4">
-                        <img src="https://placehold.co/400x400/000000/FFFFFF?text=Visual+Output:%0AComplete+Spiderweb%0A(Spokes+and+Rings)" alt="A complete spiderweb with 8 spokes and 5 concentric rings on a black background, with an orange dot in the center" class="w-full max-w-sm mx-auto border border-slate-300 rounded-md shadow-sm">
+                        <img src="https://placehold.co/400x400/000000/FFFFFF?text=Visual+Output:%0AComplete+Spiderweb%0A(Spokes+and+Rings)"
+                            alt="A complete spiderweb with 8 spokes and 5 concentric rings on a black background, with an orange dot in the center"
+                            class="w-full max-w-sm mx-auto border border-slate-300 rounded-md shadow-sm">
                         <p class="text-sm text-slate-500 mt-2">Visual Output for Part B</p>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Part 5: Check Questions -->
             <section id="check" class="mb-16">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Part 5: Check Your Understanding 🧠</h2>
@@ -280,39 +330,51 @@ turtle.done()
 
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">1. The Angle</h3>
-                        <p class="mb-2 text-slate-600">If you wanted to draw **6** spokes, what angle would you need to turn by? (360 / 6)</p>
-                        <input id="q1-input" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder="Enter angle in degrees">
+                        <p class="mb-2 text-slate-600">If you wanted to draw **6** spokes, what angle would you need to
+                            turn by? (360 / 6)</p>
+                        <input id="q1-input" type="text" class="w-full p-2 border border-slate-300 rounded-md"
+                            placeholder="Enter angle in degrees">
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">2. Fill in the Blank</h3>
-                        <p class="mb-2 text-slate-600">To stop the turtle from drawing when it moves, you would use the command `t.____()`.</p>
-                        <input id="q2-input" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder="Enter command name">
+                        <p class="mb-2 text-slate-600">To stop the turtle from drawing when it moves, you would use the
+                            command `t.____()`.</p>
+                        <input id="q2-input" type="text" class="w-full p-2 border border-slate-300 rounded-md"
+                            placeholder="Enter command name">
                     </div>
-                    
+
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">3. Command Recall</h3>
-                        <p class="mb-2 text-slate-600">Which single command moves the turtle to (0, 0) and faces it East (heading 0)?</p>
-                        <input id="q3-input" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder="e.g., t.command()">
+                        <p class="mb-2 text-slate-600">Which single command moves the turtle to (0, 0) and faces it East
+                            (heading 0)?</p>
+                        <input id="q3-input" type="text" class="w-full p-2 border border-slate-300 rounded-md"
+                            placeholder="e.g., t.command()">
                     </div>
 
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">4. True or False?</h3>
                         <p class="mb-4 text-slate-600">Click to select the correct answer for the statement:</p>
-                        <p class="mb-4 text-slate-700 font-semibold">"<code>t.speed(0)</code> makes the turtle move very slowly."</p>
+                        <p class="mb-4 text-slate-700 font-semibold">"<code>t.speed(0)</code> makes the turtle move very
+                            slowly."</p>
                         <table class="w-full border-collapse">
                             <tbody>
-                                <tr><td class="p-2 border border-slate-300 boolean-cell" onclick="toggleBoolean(this, 'q4-cell')">...</td></tr>
+                                <tr>
+                                    <td class="p-2 border border-slate-300 boolean-cell"
+                                        onclick="toggleBoolean(this, 'q4-cell')">...</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
                         <h3 class="font-bold text-lg mb-4">5. Code Logic</h3>
-                        <p class="mb-2 text-slate-600">If `num_rings = 4` and `max_radius = 200`, what is the radius of the *first* ring? (step_size = 200/4 = 50)</p>
-                        <input id="q5-input" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder="Radius of first ring (i=0)">
+                        <p class="mb-2 text-slate-600">If `num_rings = 4` and `max_radius = 200`, what is the radius of
+                            the *first* ring? (step_size = 200/4 = 50)</p>
+                        <input id="q5-input" type="text" class="w-full p-2 border border-slate-300 rounded-md"
+                            placeholder="Radius of first ring (i=0)">
                     </div>
-                    
+
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 md:col-span-2 lg:col-span-1">
                         <h3 class="font-bold text-lg mb-4">👻 Extra Activities</h3>
                         <p class="mb-4 text-slate-600">If you're finished, try these extensions (not marked):</p>
@@ -327,7 +389,8 @@ turtle.done()
 
             <!-- Mark My Work Button -->
             <section class="text-center my-16">
-                <button onclick="markAllAnswers()" class="bg-green-600 text-white font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-green-700 transition transform hover:scale-105">
+                <button onclick="markAllAnswers()"
+                    class="bg-green-600 text-white font-bold text-xl py-4 px-8 rounded-lg shadow-lg hover:bg-green-700 transition transform hover:scale-105">
                     Mark My Work!
                 </button>
             </section>
@@ -344,7 +407,8 @@ turtle.done()
                         <ul id="feedback-list" class="space-y-3"></ul>
                     </div>
                     <div class="text-center mt-8">
-                        <button id="generate-report-btn" onclick="generateReport()" class="bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition">
+                        <button id="generate-report-btn" onclick="generateReport()"
+                            class="bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition">
                             Generate & Export Report (PDF)
                         </button>
                     </div>
@@ -358,7 +422,9 @@ turtle.done()
     </div>
 
     <!-- Floating Back-to-Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-3 rounded-full shadow-lg hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" aria-label="Back to top">⬆️</button>
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 z-50 bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-3 rounded-full shadow-lg hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+        aria-label="Back to top">⬆️</button>
 
     <script>
         // Store results globally
@@ -381,16 +447,16 @@ turtle.done()
                 cell.classList.remove('selected');
             }
         }
-        
+
         function markAllAnswers() {
             let totalScore = 0;
-            const maxScore = 5; 
+            const maxScore = 5;
             const feedbackTopics = new Map();
 
             // Question 1 (1 point)
             const q1 = document.getElementById('q1-input').value.trim();
             if (q1 === '60') { totalScore++; } else { feedbackTopics.set('Calculating Angles', '#check'); }
-            
+
             // Question 2 (1 point)
             const q2 = document.getElementById('q2-input').value.trim().toLowerCase();
             if (q2 === 'penup' || q2 === 'penup()') { totalScore++; } else { feedbackTopics.set('Pen Commands (penup/pendown)', '#check'); }
@@ -406,7 +472,7 @@ turtle.done()
             // Question 5 (1 point)
             const q5 = document.getElementById('q5-input').value.trim();
             if (q5 === '50') { totalScore++; } else { feedbackTopics.set('Loop Logic & Calculation', '#check'); }
-            
+
             const percentage = Math.round((totalScore / maxScore) * 100);
 
             // Store results globally
@@ -418,10 +484,10 @@ turtle.done()
             // Display results on page
             document.getElementById('score-display').textContent = `You scored ${totalScore} out of ${maxScore}.`;
             document.getElementById('percentage-display').textContent = `${percentage}%`;
-            
+
             const feedbackList = document.getElementById('feedback-list');
             const feedbackIntro = document.getElementById('feedback-intro');
-            feedbackList.innerHTML = ''; 
+            feedbackList.innerHTML = '';
 
             if (feedbackTopics.size > 0) {
                 feedbackIntro.textContent = "Based on your answers, you might want to review the following topics:";
@@ -524,4 +590,5 @@ turtle.done()
         });
     </script>
 </body>
+
 </html>

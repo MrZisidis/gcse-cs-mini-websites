@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,65 +15,83 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
+
         .feedback-summary-item.correct .marker {
             background-color: #16a34a;
             color: white;
         }
+
         .feedback-summary-item.incorrect .marker {
             background-color: #dc2626;
             color: white;
         }
+
         @media print {
             body * {
                 visibility: hidden;
             }
-            #print-area, #print-area * {
+
+            #print-area,
+            #print-area * {
                 visibility: visible;
             }
+
             #print-area {
                 position: absolute;
                 left: 0;
                 top: 0;
                 width: 100%;
             }
+
             /* Hide non-printable elements */
-            header, footer, button, #back-to-top {
+            header,
+            footer,
+            button,
+            #back-to-top {
                 display: none !important;
             }
         }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800">
 
-<!-- Sticky Header -->
-<header class="sticky top-0 bg-slate-50/90 backdrop-blur-lg z-20 border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        <!-- Breadcrumbs (Top-left) -->
-        <div class="flex items-center gap-2 text-sm text-slate-600">
-  <a href="./" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold" aria-label="Home">
-    <span aria-hidden="true">🏠</span>
-  </a>
-  <span class="text-slate-300">/</span>
-  <a href="./#projects" class="hover:text-sky-700">Projects</a>
-  <span class="text-slate-300">/</span>
-  <span class="text-slate-800 font-semibold">🐢Python Turtle</span>
-</div>
-        <!-- In-page section links (Right) -->
-        <nav class="hidden md:flex items-center gap-6">
-            <a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold transition">Theory</a>
-            <a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold transition">Debugging</a>
-            <a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold transition">Coding</a>
-        </nav>
-    </div>
-</header>
+    <!-- Sticky Header -->
+    <header class="sticky top-0 bg-slate-50/90 backdrop-blur-lg z-20 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Breadcrumbs (Top-left) -->
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+                <a href="./" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
+                    aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="./#projects" class="hover:text-sky-700">Projects</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-800 font-semibold">🐢Python Turtle</span>
+            </div>
+            <!-- In-page section links (Right) -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold transition">Theory</a>
+                <a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold transition">Debugging</a>
+                <a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold transition">Coding</a>
+                <a href="python_playground.html"
+                    class="text-sky-600 hover:text-sky-800 font-semibold transition border-l pl-6 border-slate-300">Python
+                    Playground 🐍</a>
+            </nav>
+        </div>
+    </header>
 
     <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <header class="text-center py-12">
             <h1 class="text-4xl md:text-5xl font-bold text-slate-900">Python Turtle Revision 🐢</h1>
-            <p class="mt-4 text-lg text-slate-600">Prepare for the assessment: Coordinates, Loops, Lists & Functions.</p>
+            <p class="mt-4 text-lg text-slate-600">Prepare for the assessment: Coordinates, Loops, Lists & Functions.
+            </p>
             <div class="mt-6 max-w-md mx-auto">
-                <input type="text" id="student-name" class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-sky-500 focus:outline-none" placeholder="Enter your full name for the report...">
+                <input type="text" id="student-name"
+                    class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"
+                    placeholder="Enter your full name for the report...">
             </div>
         </header>
 
@@ -80,7 +99,8 @@
             <!-- Part 1: Theory -->
             <section id="part1" class="mb-16 scroll-mt-24">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                    <span class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">1</span>
+                    <span
+                        class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">1</span>
                     Theory & Coordinates 📐
                 </h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -88,20 +108,30 @@
                     <!-- Q1: Grid System -->
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition">
                         <h3 class="font-bold text-lg mb-4 text-sky-800">1. The Grid System</h3>
-                        <p class="text-sm text-slate-500 mb-4">Recall the Cartesian coordinate system used by Turtle.</p>
-                        
+                        <p class="text-sm text-slate-500 mb-4">Recall the Cartesian coordinate system used by Turtle.
+                        </p>
+
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">a) Coordinates (x,y) of "Home":</label>
-                                <input id="q1a-input" type="text" class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none" placeholder="e.g. 100, 100">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">a) Coordinates (x,y) of
+                                    "Home":</label>
+                                <input id="q1a-input" type="text"
+                                    class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none"
+                                    placeholder="e.g. 100, 100">
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">b) Command to go to center:</label>
-                                <input id="q1b-input" type="text" class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none" placeholder="e.g. turtle.go...">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">b) Command to go to
+                                    center:</label>
+                                <input id="q1b-input" type="text"
+                                    class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none"
+                                    placeholder="e.g. turtle.go...">
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">c) If left edge is x = -200, right edge x is?</label>
-                                <input id="q1c-input" type="number" class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none" placeholder="Enter number">
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">c) If left edge is x =
+                                    -200, right edge x is?</label>
+                                <input id="q1c-input" type="number"
+                                    class="w-full p-2 border border-slate-300 rounded-md focus:border-sky-500 outline-none"
+                                    placeholder="Enter number">
                             </div>
                         </div>
                     </div>
@@ -110,7 +140,7 @@
                     <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition">
                         <h3 class="font-bold text-lg mb-4 text-sky-800">2. Headings & Orientation</h3>
                         <p class="text-sm text-slate-500 mb-4">Match degrees to compass directions.</p>
-                        
+
                         <div class="space-y-3">
                             <div class="flex items-center justify-between p-2 bg-slate-50 rounded">
                                 <span class="font-mono text-slate-600">0°</span>
@@ -147,23 +177,32 @@
                     </div>
 
                     <!-- Q3: Drawing Mechanics -->
-                    <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition md:col-span-2">
+                    <div
+                        class="bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:shadow-lg transition md:col-span-2">
                         <h3 class="font-bold text-lg mb-4 text-sky-800">3. Drawing Mechanics</h3>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">a) Name the two formats for defining color:</label>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">a) Name the two formats
+                                    for defining color:</label>
                                 <div class="flex gap-2 mb-2">
                                     <span class="text-slate-500 text-sm py-2">1.</span>
-                                    <input id="q3a-input1" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder='e.g. "red" (String)'>
+                                    <input id="q3a-input1" type="text"
+                                        class="w-full p-2 border border-slate-300 rounded-md"
+                                        placeholder='e.g. "red" (String)'>
                                 </div>
                                 <div class="flex gap-2">
                                     <span class="text-slate-500 text-sm py-2">2.</span>
-                                    <input id="q3a-input2" type="text" class="w-full p-2 border border-slate-300 rounded-md" placeholder='e.g. (255,0,0) (RGB/Tuple)'>
+                                    <input id="q3a-input2" type="text"
+                                        class="w-full p-2 border border-slate-300 rounded-md"
+                                        placeholder='e.g. (255,0,0) (RGB/Tuple)'>
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">b) Why do "layers" matter when drawing a target?</label>
-                                <textarea id="q3b-input" rows="3" class="w-full p-2 border border-slate-300 rounded-md text-sm" placeholder="Explain what happens if you draw a small shape before a large one..."></textarea>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">b) Why do "layers" matter
+                                    when drawing a target?</label>
+                                <textarea id="q3b-input" rows="3"
+                                    class="w-full p-2 border border-slate-300 rounded-md text-sm"
+                                    placeholder="Explain what happens if you draw a small shape before a large one..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -173,36 +212,42 @@
             <!-- Part 2: Debugging -->
             <section id="part2" class="mb-16 scroll-mt-24">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                    <span class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">2</span>
+                    <span
+                        class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">2</span>
                     Code Comprehension & Debugging 🐞
                 </h2>
 
                 <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200">
-                    <p class="mb-4 text-slate-600">The code below is supposed to draw a <strong>blue pentagon</strong>. There are <strong class="text-red-600">4 errors</strong>. Find and fix them.</p>
-                    
+                    <p class="mb-4 text-slate-600">The code below is supposed to draw a <strong>blue pentagon</strong>.
+                        There are <strong class="text-red-600">4 errors</strong>. Find and fix them.</p>
+
                     <div class="grid lg:grid-cols-2 gap-8">
                         <div>
                             <h4 class="font-semibold text-slate-700 mb-2">Buggy Code:</h4>
-                            <div class="bg-red-50 border border-red-200 text-red-900 p-4 rounded-md font-mono text-sm leading-relaxed whitespace-pre-wrap select-none">import turtle
+                            <div
+                                class="bg-red-50 border border-red-200 text-red-900 p-4 rounded-md font-mono text-sm leading-relaxed whitespace-pre-wrap select-none">
+                                import turtle
 
-t = turtle.Turtle()
-t.colour("blue")       # Error 1?
+                                t = turtle.Turtle()
+                                t.colour("blue") # Error 1?
 
-# Draw a pentagon
-for i in range(5)      # Error 2?
-    t.forward(100)
-    t.right(60)        # Error 3?
+                                # Draw a pentagon
+                                for i in range(5) # Error 2?
+                                t.forward(100)
+                                t.right(60) # Error 3?
 
-t.hideturtle()
-turtle.done()</div>
+                                t.hideturtle()
+                                turtle.done()</div>
                             <div class="mt-4 bg-yellow-50 p-4 rounded text-sm text-yellow-800 border border-yellow-200">
                                 <strong>Hint:</strong> A pentagon has 5 sides. The external angle is 360 / 5.
                             </div>
                         </div>
-                        
+
                         <div>
                             <h4 class="font-semibold text-slate-700 mb-2">Your Corrected Code:</h4>
-                            <textarea id="q4-code" rows="12" class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-green-400 focus:ring-2 focus:ring-sky-500 outline-none" placeholder="import turtle..."></textarea>
+                            <textarea id="q4-code" rows="12"
+                                class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-green-400 focus:ring-2 focus:ring-sky-500 outline-none"
+                                placeholder="import turtle..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -211,7 +256,8 @@ turtle.done()</div>
             <!-- Part 3: Coding Challenge -->
             <section id="part3" class="mb-16 scroll-mt-24">
                 <h2 class="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                    <span class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">3</span>
+                    <span
+                        class="bg-sky-100 text-sky-700 w-10 h-10 rounded-full flex items-center justify-center text-xl">3</span>
                     Coding Challenges ⌨️
                 </h2>
 
@@ -224,13 +270,16 @@ turtle.done()</div>
                             <li>The turtle must start at the center <code>(0,0)</code> for every line.</li>
                             <li>It must draw a line <strong>100 pixels long</strong>, then return to the center.</li>
                             <li>It must change angle by <strong>90 degrees</strong> after every line.</li>
-                            <li><strong>Crucial:</strong> You must use a <code>for</code> loop to iterate through the <code>colour_list</code>.</li>
+                            <li><strong>Crucial:</strong> You must use a <code>for</code> loop to iterate through the
+                                <code>colour_list</code>.</li>
                             <li>Use <code>setheading</code> or simple <code>right/left</code> turns.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="relative">
-                        <textarea id="q5-code" rows="10" class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-sky-300 focus:ring-2 focus:ring-sky-500 outline-none" spellcheck="false"># Complete the code below
+                        <textarea id="q5-code" rows="10"
+                            class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-sky-300 focus:ring-2 focus:ring-sky-500 outline-none"
+                            spellcheck="false"># Complete the code below
 colour_list = ["red", "purple", "blue", "green"]
 
 # Write your loop here:
@@ -243,53 +292,62 @@ colour_list = ["red", "purple", "blue", "green"]
                     <h3 class="font-bold text-xl mb-4 text-sky-800">Task B: Concentric Squares (Subprograms)</h3>
                     <p class="mb-4 text-slate-600">
                         Write a program from scratch to draw Concentric Squares centered at (0,0).<br>
-                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 1</span> Define <code>draw_centered_square(size, fill_color)</code>.<br>
-                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 2</span> Use <code>penup()</code> and <code>goto()</code> to center the shape (offset by size/2).<br>
-                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 3</span> Call function 3 times: Black (200), Red (150), Yellow (100).
+                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 1</span> Define
+                        <code>draw_centered_square(size, fill_color)</code>.<br>
+                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 2</span> Use
+                        <code>penup()</code> and <code>goto()</code> to center the shape (offset by size/2).<br>
+                        <span class="text-sm bg-slate-100 px-2 py-1 rounded border">Requirement 3</span> Call function 3
+                        times: Black (200), Red (150), Yellow (100).
                     </p>
-                    
+
                     <div class="flex flex-col gap-4">
-                        <button onclick="revealDirectly('skeleton-d', this)" class="self-start bg-amber-100 text-amber-800 hover:bg-amber-200 px-4 py-2 rounded text-sm font-semibold transition">
+                        <button onclick="revealDirectly('skeleton-d', this)"
+                            class="self-start bg-amber-100 text-amber-800 hover:bg-amber-200 px-4 py-2 rounded text-sm font-semibold transition">
                             Need a hint? Reveal Skeleton
                         </button>
-                        
-                        <div id="skeleton-d" class="hidden bg-slate-800 text-slate-400 p-4 rounded text-xs font-mono">
-def draw_centered_square(size, fill_color):
-    # Calculate offset
-    offset = size / 2
-    # Move without drawing to starting corner (-offset, -offset)
-    # ...
-    # Draw square loop
-    # ...
 
-# Main Program Calls
-draw_centered_square(200, "black")
-# ...
+                        <div id="skeleton-d" class="hidden bg-slate-800 text-slate-400 p-4 rounded text-xs font-mono">
+                            def draw_centered_square(size, fill_color):
+                            # Calculate offset
+                            offset = size / 2
+                            # Move without drawing to starting corner (-offset, -offset)
+                            # ...
+                            # Draw square loop
+                            # ...
+
+                            # Main Program Calls
+                            draw_centered_square(200, "black")
+                            # ...
                         </div>
 
-                        <textarea id="q6-code" rows="15" class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-emerald-300 focus:ring-2 focus:ring-sky-500 outline-none" placeholder="import turtle..."></textarea>
+                        <textarea id="q6-code" rows="15"
+                            class="w-full p-4 border border-slate-300 rounded-md font-mono text-sm bg-slate-900 text-emerald-300 focus:ring-2 focus:ring-sky-500 outline-none"
+                            placeholder="import turtle..."></textarea>
                     </div>
                 </div>
             </section>
 
             <!-- Mark Button -->
             <section class="text-center my-16">
-                <button onclick="markAllAnswers()" class="bg-emerald-600 text-white font-bold text-xl py-4 px-12 rounded-full shadow-xl hover:bg-emerald-700 transition transform hover:scale-105 active:scale-95 ring-4 ring-emerald-100">
+                <button onclick="markAllAnswers()"
+                    class="bg-emerald-600 text-white font-bold text-xl py-4 px-12 rounded-full shadow-xl hover:bg-emerald-700 transition transform hover:scale-105 active:scale-95 ring-4 ring-emerald-100">
                     Mark My Work! ✅
                 </button>
             </section>
 
             <!-- Results Section -->
             <section id="results-summary" class="hidden mb-16 scroll-mt-24">
-                <div class="bg-white p-8 rounded-xl shadow-2xl border border-slate-200 max-w-4xl mx-auto relative overflow-hidden">
+                <div
+                    class="bg-white p-8 rounded-xl shadow-2xl border border-slate-200 max-w-4xl mx-auto relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sky-400 to-emerald-400"></div>
-                    
+
                     <h2 class="text-3xl font-bold text-slate-900 mb-2 text-center">Assessment Results</h2>
                     <p class="text-center text-slate-500 mb-8">Here is how you performed on the revision tasks.</p>
 
                     <div class="flex flex-col items-center justify-center mb-8">
                         <div id="percentage-display" class="text-6xl font-black text-sky-600 mb-2">0%</div>
-                        <div id="score-display" class="text-xl font-medium text-slate-600 bg-slate-100 px-4 py-1 rounded-full">0 / 0</div>
+                        <div id="score-display"
+                            class="text-xl font-medium text-slate-600 bg-slate-100 px-4 py-1 rounded-full">0 / 0</div>
                     </div>
 
                     <div id="feedback-section" class="bg-slate-50 rounded-lg p-6 mb-8 border border-slate-100">
@@ -299,7 +357,8 @@ draw_centered_square(200, "black")
                     </div>
 
                     <div class="text-center">
-                        <button id="generate-report-btn" onclick="generateReport()" class="inline-flex items-center gap-2 bg-sky-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-sky-700 transition">
+                        <button id="generate-report-btn" onclick="generateReport()"
+                            class="inline-flex items-center gap-2 bg-sky-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-sky-700 transition">
                             <span>📄</span> Generate PDF Report
                         </button>
                     </div>
@@ -315,7 +374,9 @@ draw_centered_square(200, "black")
     </div>
 
     <!-- Back to Top -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 z-50 bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 rounded-full shadow-lg hidden transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" aria-label="Back to top">
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 z-50 bg-sky-600 hover:bg-sky-700 text-white font-bold p-3 rounded-full shadow-lg hidden transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+        aria-label="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
@@ -357,10 +418,10 @@ draw_centered_square(200, "black")
             const feedbackTopics = new Map();
 
             // --- PART 1: THEORY (6 Points) ---
-            
+
             // Q1a: Home Coords
             const q1a = document.getElementById('q1a-input').value.trim().replace(/\s/g, '');
-            if (q1a === '0,0' || q1a === '(0,0)' || q1a === '00') { totalScore++; } 
+            if (q1a === '0,0' || q1a === '(0,0)' || q1a === '00') { totalScore++; }
             else { feedbackTopics.set('Grid Coordinates', '#part1'); }
 
             // Q1b: Center Command
@@ -386,7 +447,7 @@ draw_centered_square(200, "black")
             const q3a1 = document.getElementById('q3a-input1').value.toLowerCase();
             const q3a2 = document.getElementById('q3a-input2').value.toLowerCase();
             const combinedColors = q3a1 + " " + q3a2;
-            if ((combinedColors.includes('string') || combinedColors.includes('"') || combinedColors.includes("'")) && 
+            if ((combinedColors.includes('string') || combinedColors.includes('"') || combinedColors.includes("'")) &&
                 (combinedColors.includes('rgb') || combinedColors.includes('tuple') || combinedColors.includes(',') || combinedColors.includes('#'))) {
                 totalScore += 2;
             } else if (combinedColors.length > 5) {
@@ -411,7 +472,7 @@ draw_centered_square(200, "black")
             if (codeDebug.includes('color') && !codeDebug.includes('colour')) debugScore++; // Fix spelling
             if (codeDebug.includes(':') && codeDebug.includes('range(5)')) debugScore++; // Fix syntax
             if (codeDebug.includes('72')) debugScore++; // Fix logic (angle)
-            
+
             // Normalize to 2 points max for this section in the grand scheme
             if (debugScore >= 2) totalScore += 2;
             else if (debugScore === 1) { totalScore += 1; feedbackTopics.set('Debugging Syntax', '#part2'); }
@@ -449,10 +510,10 @@ draw_centered_square(200, "black")
             // UI Updates
             document.getElementById('score-display').textContent = `${totalScore} / ${maxScore}`;
             document.getElementById('percentage-display').textContent = `${percentage}%`;
-            
+
             const feedbackList = document.getElementById('feedback-list');
             const feedbackIntro = document.getElementById('feedback-intro');
-            feedbackList.innerHTML = ''; 
+            feedbackList.innerHTML = '';
 
             if (feedbackTopics.size > 0) {
                 feedbackIntro.innerHTML = "Based on your answers, focus your revision on these areas:";
@@ -579,4 +640,5 @@ draw_centered_square(200, "black")
         });
     </script>
 </body>
+
 </html>

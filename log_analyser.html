@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Chosen Palette: Calm Harmony (Neutral, White, Teal) -->
     <!-- Application Structure Plan: The SPA is structured as an interactive lesson guide. It uses a top navigation bar (tabs) to break the 'README.md' report into its logical sections (Mission, Resources, Part 1, Part 2, Part 3, Stretch Goals). This task-oriented, tabbed structure was chosen because the source report is a linear lesson plan. A 'Resources' tab was added to hold starter files, centralizing all materials. Navigation is handled by JS, which shows/hides the corresponding content 'page' for each tab. Copy-to-clipboard buttons are added for code blocks. -->
@@ -22,27 +23,34 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .nav-button {
             transition: all 0.3s ease;
         }
+
         .nav-button.active {
             background-color: #0d9488;
             color: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
+
         .nav-button:not(.active) {
             background-color: #e5e7eb;
             color: #374151;
         }
+
         .nav-button:not(.active):hover {
             background-color: #d1d5db;
         }
+
         .content-page {
             display: none;
         }
+
         .content-page.active {
             display: block;
         }
+
         .copy-code-button {
             position: absolute;
             top: 1rem;
@@ -57,19 +65,34 @@
             transition: background-color 0.2s;
             z-index: 10;
         }
+
         .copy-code-button:hover {
             background-color: #374151;
         }
+
         pre.with-copy-button {
             padding-top: 3.5rem;
             position: relative;
         }
     </style>
 </head>
+
 <body class="bg-neutral-50 text-neutral-800 min-h-screen antialiased">
 
+    <!-- Added Global Nav -->
+    <nav
+        class="bg-white border-b border-neutral-200 px-4 md:px-8 py-3 mb-4 flex justify-between items-center sticky top-0 z-50 shadow-sm opacity-95">
+        <a href="./" class="font-bold text-teal-700 flex items-center gap-2">
+            <span>🏠</span> GCSE CS
+        </a>
+        <div class="space-x-4 text-sm font-semibold">
+            <a href="index.html#projects" class="text-neutral-600 hover:text-teal-600">Projects</a>
+            <a href="python_playground.html" class="text-teal-600 hover:text-teal-800">Python Playground 🐍</a>
+        </div>
+    </nav>
+
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
-        
+
         <header class="text-center mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-teal-800">Mini-Project: The AI-Powered Log Analyzer</h1>
             <p class="text-lg text-neutral-600 mt-2">Your 120-minute mission to build a smart security tool.</p>
@@ -98,36 +121,44 @@
 
         <main id="content-container">
 
-            <section id="mission" class="content-page active bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
+            <section id="mission"
+                class="content-page active bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Your Mission</h2>
                 <p class="mb-4 text-lg">
-                    You are a junior security analyst. Your first task is to build a Python tool that can read a server's log file, find suspicious entries, and use AI to help you understand what they mean.
+                    You are a junior security analyst. Your first task is to build a Python tool that can read a
+                    server's log file, find suspicious entries, and use AI to help you understand what they mean.
                 </p>
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">You will practice:</h3>
                 <ul class="list-none space-y-3">
                     <li class="flex items-center text-lg">
-                        <span class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">📄</span>
+                        <span
+                            class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">📄</span>
                         Reading from files (`open`, `read`)
                     </li>
                     <li class="flex items-center text-lg">
-                        <span class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">✍️</span>
+                        <span
+                            class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">✍️</span>
                         Writing to files (`open`, `write`)
                     </li>
                     <li class="flex items-center text-lg">
-                        <span class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">📦</span>
+                        <span
+                            class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">📦</span>
                         Using Python libraries (to make web requests)
                     </li>
                     <li class="flex items-center text-lg">
-                        <span class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">🤖</span>
+                        <span
+                            class="text-teal-500 bg-teal-100 rounded-full h-8 w-8 flex items-center justify-center font-bold mr-3">🤖</span>
                         Calling an AI (Gemini) to get insights
                     </li>
                 </ul>
             </section>
 
-            <section id="resources" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
+            <section id="resources"
+                class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Lesson Resources</h2>
                 <p class="mb-6 text-lg">
-                    Here are the starter files you'll need. Use the "Copy" button to save the content to your own local files (e.g., `log_analyzer.py` and `web_logs.txt`).
+                    Here are the starter files you'll need. Use the "Copy" button to save the content to your own local
+                    files (e.g., `log_analyzer.py` and `web_logs.txt`).
                 </p>
 
                 <div class="mb-8">
@@ -295,10 +326,12 @@ if __name__ == "__main__":
             <section id="part1" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Part 1: The Basic Scan (File I/O)</h2>
                 <p class="mb-4 text-lg">
-                    <strong>Goal:</strong> Read from `web_logs.txt` (which you copied from the Resources tab) and write all "suspicious" lines to a new file called `report.txt`.
+                    <strong>Goal:</strong> Read from `web_logs.txt` (which you copied from the Resources tab) and write
+                    all "suspicious" lines to a new file called `report.txt`.
                 </p>
                 <p class="mb-6 text-base bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md">
-                    For now, a "suspicious" line is any line that contains the word <strong class="font-semibold">`ERROR`</strong> or the code <strong class="font-semibold">`404`</strong>.
+                    For now, a "suspicious" line is any line that contains the word <strong
+                        class="font-semibold">`ERROR`</strong> or the code <strong class="font-semibold">`404`</strong>.
                 </p>
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">Your Tasks:</h3>
                 <ol class="list-decimal list-outside ml-6 space-y-3 text-base">
@@ -308,7 +341,8 @@ if __name__ == "__main__":
                         <ul class="list-disc list-outside ml-6 mt-2 space-y-2">
                             <li>Open and read `web_logs.txt` line by line.</li>
                             <li>Check if a line contains `ERROR` or `404`.</li>
-                            <li>If it does, open (or create) `report.txt` and append that suspicious line to it, followed by a newline.</li>
+                            <li>If it does, open (or create) `report.txt` and append that suspicious line to it,
+                                followed by a newline.</li>
                         </ul>
                     </li>
                     <li>Run your script! You should see a new file, `report.txt`, appear with only the error lines.</li>
@@ -318,12 +352,14 @@ if __name__ == "__main__":
             <section id="part2" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">Part 2: The "Pretty" Report (String Manipulation)</h2>
                 <p class="mb-4 text-lg">
-                    <strong>Goal:</strong> Make the report more readable. Instead of writing the *whole line*, just extract the key info.
+                    <strong>Goal:</strong> Make the report more readable. Instead of writing the *whole line*, just
+                    extract the key info.
                 </p>
                 <p class="mb-4 text-base">
-                    A log line looks like this: <code class="bg-neutral-200 text-neutral-800 px-2 py-1 rounded">`[2024-10-24 10:53:01] ERROR: 50.112.0.1 - Failed login attempt`</code>
+                    A log line looks like this: <code
+                        class="bg-neutral-200 text-neutral-800 px-2 py-1 rounded">`[2024-10-24 10:53:01] ERROR: 50.112.0.1 - Failed login attempt`</code>
                 </p>
-                
+
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">Your Tasks:</h3>
                 <ol class="list-decimal list-outside ml-6 space-y-3 text-base mb-6">
                     <li>Go to the `TODO` for Part 2 (you can modify your Part 1 code).</li>
@@ -353,17 +389,21 @@ if __name__ == "__main__":
                     <strong>Goal:</strong> Use AI to explain *why* a log entry is suspicious.
                 </p>
                 <p class="mb-6 text-base">
-                    We will use the pre-written `get_ai_analysis()` function in the script. It takes a text prompt and returns the AI's answer.
+                    We will use the pre-written `get_ai_analysis()` function in the script. It takes a text prompt and
+                    returns the AI's answer.
                 </p>
                 <h3 class="text-xl font-semibold text-neutral-700 mb-3">Your Tasks:</h3>
                 <ol class="list-decimal list-outside ml-6 space-y-3 text-base mb-6">
                     <li>Find the `TODO` for Part 3.</li>
-                    <li>When your code finds a suspicious line and extracts the message (from Part 2), create a `prompt`.
+                    <li>When your code finds a suspicious line and extracts the message (from Part 2), create a
+                        `prompt`.
                         <ul class="list-disc list-outside ml-6 mt-2 space-y-2">
-                            <li><strong>Example Prompt:</strong> `Explain this server error in one simple sentence: "Failed login attempt"`</li>
+                            <li><strong>Example Prompt:</strong> `Explain this server error in one simple sentence:
+                                "Failed login attempt"`</li>
                         </ul>
                     </li>
-                    <li>Call the `get_ai_analysis(prompt)` function and store the AI's response in a variable (e.g., `ai_comment`).</li>
+                    <li>Call the `get_ai_analysis(prompt)` function and store the AI's response in a variable (e.g.,
+                        `ai_comment`).</li>
                     <li>Write the AI's response to your `report.txt` file under the log entry.</li>
                 </ol>
 
@@ -377,21 +417,27 @@ if __name__ == "__main__":
 </code></pre>
             </section>
 
-            <section id="stretch" class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
+            <section id="stretch"
+                class="content-page bg-white p-6 md:p-8 rounded-lg shadow-md border border-neutral-200">
                 <h2 class="text-2xl font-bold text-teal-700 mb-4">🚀 Stretch Goals (If you finish early)</h2>
                 <p class="mb-4 text-lg">
                     Finished the main mission? Challenge yourself with these bonus tasks!
                 </p>
                 <ul class="list-disc list-outside ml-6 space-y-3 text-base">
-                    <li><strong>More Keywords:</strong> Add more suspicious keywords (e.g., `403`, `DENIED`, `SQL_INJECTION`).</li>
-                    <li><strong>Better Parsing:</strong> Use the `re` (regular expressions) library to parse the log lines more accurately.</li>
-                    <li><strong>AI Prompting:</strong> Improve your prompt! Ask the AI to rate the "threat level" from 1 to 10.</li>
-                    <li><strong>Meme Generator:</strong> Try the *other* project idea. Use the `Pillow` library to write text on an image. Use the AI to generate a "funny caption for a cat picture" and save it as `meme.jpg`.</li>
+                    <li><strong>More Keywords:</strong> Add more suspicious keywords (e.g., `403`, `DENIED`,
+                        `SQL_INJECTION`).</li>
+                    <li><strong>Better Parsing:</strong> Use the `re` (regular expressions) library to parse the log
+                        lines more accurately.</li>
+                    <li><strong>AI Prompting:</strong> Improve your prompt! Ask the AI to rate the "threat level" from 1
+                        to 10.</li>
+                    <li><strong>Meme Generator:</strong> Try the *other* project idea. Use the `Pillow` library to write
+                        text on an image. Use the AI to generate a "funny caption for a cat picture" and save it as
+                        `meme.jpg`.</li>
                 </ul>
             </section>
 
         </main>
-        
+
         <footer class="text-center mt-12 text-neutral-500 text-sm">
             <p>Interactive Lesson Plan Interface</p>
         </footer>
@@ -407,15 +453,15 @@ if __name__ == "__main__":
 
             nav.addEventListener('click', (e) => {
                 const targetButton = e.target.closest('.nav-button');
-                
+
                 if (!targetButton) return;
 
                 const targetPageId = targetButton.getAttribute('data-target');
-                
+
                 navButtons.forEach(btn => {
                     btn.classList.remove('active');
                 });
-                
+
                 targetButton.classList.add('active');
 
                 contentPages.forEach(page => {
@@ -432,24 +478,24 @@ if __name__ == "__main__":
                 if (copyButton) {
                     const targetId = copyButton.dataset.copyTarget;
                     const targetElement = document.querySelector(targetId);
-                    
+
                     if (!targetElement) {
                         console.error('Copy target not found:', targetId);
                         return;
                     }
 
                     const textToCopy = targetElement.innerText;
-                    
+
                     const textArea = document.createElement('textarea');
                     textArea.value = textToCopy;
                     textArea.style.position = 'fixed';
                     textArea.style.top = '-9999px';
                     textArea.style.left = '-9999px';
                     document.body.appendChild(textArea);
-                    
+
                     textArea.select();
                     textArea.focus();
-                    
+
                     try {
                         document.execCommand('copy');
                         const originalText = copyButton.textContent;
@@ -462,11 +508,11 @@ if __name__ == "__main__":
                     } catch (err) {
                         console.error('Failed to copy text:', err);
                         copyButton.textContent = 'Failed!';
-                         setTimeout(() => {
+                        setTimeout(() => {
                             copyButton.textContent = 'Copy';
                         }, 2000);
                     }
-                    
+
                     document.body.removeChild(textArea);
                 }
             });
@@ -474,5 +520,5 @@ if __name__ == "__main__":
     </script>
 
 </body>
-</html>
 
+</html>
