@@ -244,48 +244,70 @@ for i in range(3):
 
     async function fetchRepoFiles() {
       fileListEl.innerHTML = '<div class="text-center text-slate-400 text-sm mt-4">Fetching file list...</div>';
+
+      // Mock data fallback in case repo is missing or private
+      const fallbackFiles = [
+        { name: "01_hello.py", download_url: null, content: "print('Hello, Python World!')\nname = 'Alice'\nprint(f'Welcome, {name}')" },
+        { name: "02_math.py", download_url: null, content: "x = 10\ny = 5\nprint(f'{x} + {y} = {x+y}')\nprint(f'{x} * {y} = {x*y}')" },
+        { name: "03_loops.py", download_url: null, content: "print('Countdown!')\nfor i in range(5, 0, -1):\n    print(i)\nprint('Blastoff! 🚀')" }
+      ];
+
       try {
         const response = await fetch(API_URL);
-        if (!response.ok) throw new Error(`GitHub API Error: ${response.status}`);
-        const data = await response.json();
 
-        // Filter for .py files
-        const pyFiles = data.filter(item => item.name.endsWith(".py") && item.type === "file");
-
-        fileListEl.innerHTML = ""; // Clear loading
-
-        if (pyFiles.length === 0) {
-          fileListEl.innerHTML = '<div class="p-2 text-sm text-yellow-600 bg-yellow-50 rounded">No .py files found in this repo.</div>';
+        if (!response.ok) {
+          console.warn("GitHub API failed or repo not found. Using fallback files.");
+          renderFiles(fallbackFiles);
           return;
         }
 
-        pyFiles.forEach(file => {
-          const item = document.createElement("div");
-          item.className = "group flex items-center justify-between p-2 rounded cursor-pointer hover:bg-sky-50 border border-transparent hover:border-sky-100 transition-colors";
-          item.innerHTML = `
-                    <div class="flex items-center gap-2 overflow-hidden">
-                        <span class="text-lg opacity-70 group-hover:opacity-100">🐍</span>
-                        <span class="text-sm font-medium text-slate-700 group-hover:text-sky-700 truncate">${file.name}</span>
-                    </div>
-                `;
-          item.onclick = () => loadFileContent(file);
-          fileListEl.appendChild(item);
-        });
+        const data = await response.json();
+        const pyFiles = data.filter(item => item.name.endsWith(".py") && item.type === "file");
+
+        if (pyFiles.length === 0) {
+          renderFiles(fallbackFiles);
+          return;
+        }
+
+        renderFiles(pyFiles);
 
       } catch (err) {
-        fileListEl.innerHTML = `<div class="p-2 text-sm text-red-600 bg-red-50 rounded">Error: ${err.message}.<br><span class="text-xs text-slate-500">Check connection or rate limits.</span></div>`;
+        console.warn("Network error or Fetch failed. Using fallback files.", err);
+        renderFiles(fallbackFiles);
       }
     }
 
+    function renderFiles(files) {
+      fileListEl.innerHTML = "";
+      files.forEach(file => {
+        const item = document.createElement("div");
+        item.className = "group flex items-center justify-between p-2 rounded cursor-pointer hover:bg-sky-50 border border-transparent hover:border-sky-100 transition-colors";
+        item.innerHTML = `
+                <div class="flex items-center gap-2 overflow-hidden">
+                    <span class="text-lg opacity-70 group-hover:opacity-100">🐍</span>
+                    <span class="text-sm font-medium text-slate-700 group-hover:text-sky-700 truncate">${file.name}</span>
+                </div>
+            `;
+        item.onclick = () => loadFileContent(file);
+        fileListEl.appendChild(item);
+      });
+    }
+
     async function loadFileContent(fileObj) {
-      // fileObj contains 'download_url' which is the raw content
       try {
-        // UI Feedback
         document.getElementById("current-filename").textContent = "Loading...";
 
-        const res = await fetch(fileObj.download_url);
-        if (!res.ok) throw new Error("Failed to fetch file content");
-        const text = await res.text();
+        let text = "";
+
+        if (fileObj.content) {
+          // It's a fallback file
+          text = fileObj.content;
+        } else if (fileObj.download_url) {
+          // It's a real GitHub file
+          const res = await fetch(fileObj.download_url);
+          if (!res.ok) throw new Error("Failed to fetch file content");
+          text = await res.text();
+        }
 
         editor.setValue(text);
         document.getElementById("current-filename").textContent = fileObj.name;
