@@ -120,6 +120,11 @@
               class="hover:text-white transition-colors text-xs uppercase font-bold tracking-wider px-3 py-1 rounded bg-sky-600 hover:bg-sky-700 text-white shadow-sm flex items-center gap-1">
               <span>📄</span> New
             </button>
+            <button id="export-btn"
+              class="hover:text-white transition-colors text-xs uppercase font-bold tracking-wider px-2 py-1 rounded hover:bg-slate-700 border border-slate-600"
+              title="Download .py file">
+              💾
+            </button>
             <button id="copy-btn"
               class="hover:text-white transition-colors text-xs uppercase font-bold tracking-wider px-2 py-1 rounded hover:bg-slate-700 border border-slate-600">
               Copy Code
@@ -262,6 +267,36 @@ for i in range(3):
     // --- Button Actions ---
     document.getElementById("clear-btn").addEventListener("click", () => {
       outputConsole.textContent = "Ready to run.";
+    });
+
+    document.getElementById("export-btn").addEventListener("click", () => {
+      const code = editor.getValue();
+      const filename = document.getElementById("current-filename").textContent.trim() || "untitled.py";
+
+      const blob = new Blob([code], { type: "text/x-python" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("export-btn").addEventListener("click", () => {
+      const code = editor.getValue();
+      const filename = document.getElementById("current-filename").textContent.trim() || "untitled.py";
+
+      const blob = new Blob([code], { type: "text/x-python" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
 
     document.getElementById("copy-btn").addEventListener("click", () => {
