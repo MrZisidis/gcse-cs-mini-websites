@@ -74,7 +74,8 @@
                     <h4 class="text-xl font-semibold mb-2">Accessing Elements (Indexing)</h4>
                     <p class="mb-2 text-stone-600">You access list items using their index in square brackets
                         <code>[]</code>. Remember, Python indexing starts at <strong class="font-semibold">0</strong>
-                        for the first item.</p>
+                        for the first item.
+                    </p>
                     <pre class="bg-gray-800 text-white p-4 rounded-md font-mono text-sm"><code>scores = [85, 92, 78, 88, 95]
 # Get the first score (at index 0)
 first_score = scores[0]  # Result: 85
@@ -88,7 +89,8 @@ third_score = scores[2]  # Result: 78</code></pre>
                     <p class="mb-2 text-stone-600">Python also allows you to count from the end of the list! An index of
                         <strong class="font-semibold">-1</strong> refers to the last item, <strong
                             class="font-semibold">-2</strong> to the second-to-last, and so on. This is incredibly
-                        useful for getting the last few items without needing to know the list's length.</p>
+                        useful for getting the last few items without needing to know the list's length.
+                    </p>
                     <pre class="bg-gray-800 text-white p-4 rounded-md font-mono text-sm"><code>scores = [85, 92, 78, 88, 95]
 # Get the last score
 last_score = scores[-1]  # Result: 95
@@ -102,7 +104,8 @@ second_last = scores[-2] # Result: 88</code></pre>
                     <p class="mb-2 text-stone-600">Slicing lets you get a sub-section (a new list) from an existing
                         list. The syntax is <code>my_list[start:stop]</code>. The <code>start</code> index is inclusive,
                         and the <code>stop</code> index is exclusive (it goes up to, but does not include, the
-                        <code>stop</code> index).</p>
+                        <code>stop</code> index).
+                    </p>
                     <pre class="bg-gray-800 text-white p-4 rounded-md font-mono text-sm"><code>scores = [85, 92, 78, 88, 95, 100]
 # Get items from index 1 up to (but not including) index 4
 middle_scores = scores[1:4]  # Result: [92, 78, 88]
@@ -256,6 +259,28 @@ from_third = scores[3:]      # Result: [88, 95, 100]</code></pre>
         </section>
 
     </main>
+
+    <footer class="mt-12 py-8 border-t border-stone-200 bg-stone-50">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-600 flex flex-col items-center gap-3">
+            <div>
+                © 2025 GCSE CS Mini Websites — Built with ❤️
+            </div>
+            <div class="text-xs text-stone-500 flex flex-col md:flex-row items-center gap-2">
+                <span>Copyright (c) 2025 Stefanos Zisidis. Licensed under <a
+                        href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+                        class="underline hover:text-teal-600">CC BY 4.0</a>.</span>
+                <a href="https://github.com/MrZisidis/gcse-cs-mini-websites" target="_blank"
+                    class="inline-block text-stone-400 hover:text-stone-800 transition-colors" aria-label="GitHub">
+                    <svg viewBox="0 0 16 16" class="w-4 h-4 fill-current">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 -.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64 -.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55 .38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
