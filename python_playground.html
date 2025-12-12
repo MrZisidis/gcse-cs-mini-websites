@@ -59,37 +59,250 @@
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="text-center mb-12">
+  <!-- CodeMirror & Pyodide CSS/JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full flex-grow flex flex-col">
+
+    <div class="text-center mb-8">
       <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Python Playground 🐍</h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        A sandbox for you to test your Python code snippets. Write, run, and debug your ideas right here in the browser.
+      <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+        Write and run Python code directly in your browser! Select a starter file from the repository below or write
+        your own from scratch.
       </p>
     </div>
 
-    <!-- Playground Embed -->
-    <div class="bg-white p-2 rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-      <!-- Using a generic Trinket Python 3 embed -->
-      <iframe src="https://trinket.io/embed/python3/a0d1e0892c?outputOnly=false&runOption=run&start=result" width="100%"
-        height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-    </div>
+    <!-- Playground Grid -->
+    <div class="grid lg:grid-cols-12 gap-6 items-start">
 
-    <div class="mt-8 grid md:grid-cols-3 gap-6 text-center">
-      <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
-        <h3 class="font-bold text-indigo-900 mb-2">Variables</h3>
-        <code class="block bg-white p-2 rounded text-sm text-indigo-700">score = 10<br>name = "Alex"</code>
+      <!-- Sidebar: Repo Browser -->
+      <div
+        class="lg:col-span-3 bg-white rounded-lg shadow-md border border-slate-200 overflow-hidden flex flex-col h-[600px]">
+        <div class="bg-slate-100 p-4 border-b border-slate-200">
+          <h3 class="font-bold text-slate-700 flex items-center gap-2">
+            <span>📂</span> Repository Files
+          </h3>
+          <p class="text-xs text-slate-500 mt-1 truncate" title="MrZisidis/GCSE-python-coding-playground">
+            Source: GCSE-python-coding-playground
+          </p>
+        </div>
+
+        <div id="file-list" class="flex-grow overflow-y-auto p-2 space-y-1">
+          <div class="flex items-center justify-center h-full text-slate-400 text-sm animate-pulse">
+            Loading files...
+          </div>
+        </div>
+
+        <div class="p-3 border-t border-slate-200 bg-slate-50 text-center">
+          <button id="refresh-repo-btn"
+            class="text-xs text-sky-600 hover:text-sky-800 font-semibold flex items-center justify-center gap-1 w-full">
+            <span>🔄</span> Refresh List
+          </button>
+        </div>
       </div>
-      <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100">
-        <h3 class="font-bold text-emerald-900 mb-2">Loops</h3>
-        <code
-          class="block bg-white p-2 rounded text-sm text-emerald-700">for i in range(5):<br>&nbsp;&nbsp;print(i)</code>
-      </div>
-      <div class="bg-amber-50 p-6 rounded-lg border border-amber-100">
-        <h3 class="font-bold text-amber-900 mb-2">Conditionals</h3>
-        <code class="block bg-white p-2 rounded text-sm text-amber-700">if x > 5:<br>&nbsp;&nbsp;print("Big")</code>
+
+      <!-- Main Editor Area -->
+      <div class="lg:col-span-9 flex flex-col gap-4 h-full">
+
+        <!-- Editor Toolbar -->
+        <div class="flex items-center justify-between bg-slate-800 text-slate-300 px-4 py-2 rounded-t-lg">
+          <div class="text-sm font-mono flex items-center gap-2">
+            <span id="current-filename" class="font-bold text-white">main.py</span>
+            <span class="text-xs text-slate-500">(Python 3.10 via Pyodide)</span>
+          </div>
+          <div class="flex gap-2">
+            <button id="copy-btn"
+              class="hover:text-white transition-colors text-xs uppercase font-bold tracking-wider px-2 py-1 rounded hover:bg-slate-700">
+              Copy Code
+            </button>
+            <button id="clear-btn"
+              class="hover:text-white transition-colors text-xs uppercase font-bold tracking-wider px-2 py-1 rounded hover:bg-slate-700">
+              Clear Output
+            </button>
+          </div>
+        </div>
+
+        <!-- CodeMirror Editor Container -->
+        <div class="border-x border-slate-200 h-[400px]">
+          <textarea id="code-editor"># Welcome to the Python Playground!
+# Select a file from the left to load it, or type here.
+
+print("Hello, World!")
+for i in range(3):
+    print(f"Counting: {i}")
+</textarea>
+        </div>
+
+        <!-- Controls & Output -->
+        <div class="flex flex-col gap-0 rounded-b-lg overflow-hidden shadow-md border border-slate-200">
+          <div class="bg-slate-100 p-2 flex justify-end border-t border-slate-200">
+            <button id="run-btn"
+              class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-8 rounded flex items-center gap-2 shadow-sm transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+              <span>▶️</span> Run Code
+            </button>
+          </div>
+          <div class="bg-slate-900 p-4 font-mono text-sm h-[200px] overflow-y-auto w-full">
+            <pre id="output-console" class="text-emerald-400 whitespace-pre-wrap">Ready to run.</pre>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
+
+  <script>
+    // --- Configuration ---
+    const GITHUB_REPO = "MrZisidis/GCSE-python-coding-playground";
+    const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/contents/`;
+
+    // --- Editor Setup (CodeMirror) ---
+    const editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+      mode: "python",
+      theme: "dracula",
+      lineNumbers: true,
+      indentUnit: 4,
+      matchBrackets: true
+    });
+    // editor.setSize("100%", "400px"); // Ensure height matches container
+
+    // --- Pyodide Setup ---
+    let pyodide = null;
+    const outputConsole = document.getElementById("output-console");
+    const runBtn = document.getElementById("run-btn");
+
+    async function loadPyodideEngine() {
+      runBtn.disabled = true;
+      runBtn.innerHTML = '<span>⏳</span> Loading Python...';
+      try {
+        pyodide = await loadPyodide();
+        // Redirect stdout/stderr
+        pyodide.setStdout({ batched: (msg) => addToConsole(msg) });
+        pyodide.setStderr({ batched: (msg) => addToConsole(msg, true) });
+
+        runBtn.disabled = false;
+        runBtn.innerHTML = '<span>▶️</span> Run Code';
+        addToConsole("Pyodide loaded. Python is ready!", false, true);
+      } catch (err) {
+        addToConsole(`Failed to load Pyodide: ${err}`, true);
+      }
+    }
+
+    // --- Console Utilities ---
+    function addToConsole(msg, isError = false, isSystem = false) {
+      // Clear "Ready to run" initial message if present
+      if (outputConsole.textContent.trim() === "Ready to run.") {
+        outputConsole.textContent = "";
+      }
+
+      const span = document.createElement("div");
+      span.textContent = msg;
+      if (isError) span.className = "text-red-400 font-bold border-l-2 border-red-500 pl-2";
+      else if (isSystem) span.className = "text-slate-500 italic";
+      else span.className = "text-emerald-400"; // Default output
+
+      outputConsole.appendChild(span);
+      outputConsole.scrollTop = outputConsole.scrollHeight;
+    }
+
+    // --- Run Logic ---
+    runBtn.addEventListener("click", async () => {
+      if (!pyodide) return;
+
+      const code = editor.getValue();
+      outputConsole.innerHTML = ""; // Clear previous run output? Maybe optional. Let's clear for cleaner run.
+      addToConsole("--- Running ---", false, true);
+
+      try {
+        // await pyodide.runPythonAsync(code); // runPythonAsync is better for inputs/sleeps
+        // Actually, for simple scripts, loadPackagesFromImports might be needed if they use library code
+        await pyodide.loadPackagesFromImports(code);
+        await pyodide.runPythonAsync(code);
+      } catch (err) {
+        addToConsole(err, true);
+      }
+    });
+
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      outputConsole.textContent = "Ready to run.";
+    });
+
+    document.getElementById("copy-btn").addEventListener("click", () => {
+      navigator.clipboard.writeText(editor.getValue()).then(() => {
+        const btn = document.getElementById("copy-btn");
+        const originalText = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => btn.textContent = originalText, 2000);
+      });
+    });
+
+    // --- GitHub Repo Browser ---
+    const fileListEl = document.getElementById("file-list");
+
+    async function fetchRepoFiles() {
+      fileListEl.innerHTML = '<div class="text-center text-slate-400 text-sm mt-4">Fetching file list...</div>';
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error(`GitHub API Error: ${response.status}`);
+        const data = await response.json();
+
+        // Filter for .py files
+        const pyFiles = data.filter(item => item.name.endsWith(".py") && item.type === "file");
+
+        fileListEl.innerHTML = ""; // Clear loading
+
+        if (pyFiles.length === 0) {
+          fileListEl.innerHTML = '<div class="p-2 text-sm text-yellow-600 bg-yellow-50 rounded">No .py files found in this repo.</div>';
+          return;
+        }
+
+        pyFiles.forEach(file => {
+          const item = document.createElement("div");
+          item.className = "group flex items-center justify-between p-2 rounded cursor-pointer hover:bg-sky-50 border border-transparent hover:border-sky-100 transition-colors";
+          item.innerHTML = `
+                    <div class="flex items-center gap-2 overflow-hidden">
+                        <span class="text-lg opacity-70 group-hover:opacity-100">🐍</span>
+                        <span class="text-sm font-medium text-slate-700 group-hover:text-sky-700 truncate">${file.name}</span>
+                    </div>
+                `;
+          item.onclick = () => loadFileContent(file);
+          fileListEl.appendChild(item);
+        });
+
+      } catch (err) {
+        fileListEl.innerHTML = `<div class="p-2 text-sm text-red-600 bg-red-50 rounded">Error: ${err.message}.<br><span class="text-xs text-slate-500">Check connection or rate limits.</span></div>`;
+      }
+    }
+
+    async function loadFileContent(fileObj) {
+      // fileObj contains 'download_url' which is the raw content
+      try {
+        // UI Feedback
+        document.getElementById("current-filename").textContent = "Loading...";
+
+        const res = await fetch(fileObj.download_url);
+        if (!res.ok) throw new Error("Failed to fetch file content");
+        const text = await res.text();
+
+        editor.setValue(text);
+        document.getElementById("current-filename").textContent = fileObj.name;
+      } catch (err) {
+        addToConsole(`Error loading file: ${err.message}`, true);
+      }
+    }
+
+    document.getElementById("refresh-repo-btn").addEventListener("click", fetchRepoFiles);
+
+    // --- Initialization ---
+    // Start Pyodide loading immediately
+    loadPyodideEngine();
+    // Fetch files
+    fetchRepoFiles();
+
+  </script>
 
   <!-- Footer -->
   <footer class="mt-12 py-8 border-t border-slate-200">
