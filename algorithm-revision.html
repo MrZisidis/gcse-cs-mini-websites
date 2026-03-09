@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,23 +17,28 @@
             --success-green: #2ecc71;
             --error-red: #e74c3c;
         }
+
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8fafc;
             color: #334155;
         }
+
         .header-gradient {
             background: linear-gradient(135deg, var(--edexcel-blue) 0%, var(--edexcel-light) 100%);
         }
+
         .card {
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
+
         .card:hover {
             transform: translateY(-2px);
         }
+
         .algorithm-tag {
             background: #e2e8f0;
             padding: 4px 12px;
@@ -40,24 +46,30 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
+
         .trace-table {
             width: 100%;
             border-collapse: collapse;
             margin: 1rem 0;
         }
-        .trace-table th, .trace-table td {
+
+        .trace-table th,
+        .trace-table td {
             border: 1px solid #cbd5e1;
             padding: 12px;
             text-align: center;
         }
+
         .trace-table th {
             background-color: #f1f5f9;
         }
+
         .hidden-answer {
             display: none;
             background-color: #f0fdf4;
             border-left: 4px solid var(--success-green);
         }
+
         .exam-grid-q {
             border-radius: 8px;
             overflow: hidden;
@@ -65,6 +77,7 @@
         }
     </style>
 </head>
+
 <body class="pb-12">
 
     <!-- Navigation -->
@@ -73,8 +86,8 @@
             <div class="flex items-center gap-4">
                 <a href="index.html" class="text-2xl hover:scale-110 transition">🏠</a>
                 <div>
-                    <h1 class="text-3xl font-bold italic">Edexcel GCSE (9-1)</h1>
-                    <p class="text-blue-100">Topic 2: Algorithms - Searching & Sorting</p>
+                    <h1 class="text-3xl font-bold italic">Algorithms - Searching & Sorting</h1>
+
                 </div>
             </div>
             <nav class="mt-4 md:mt-0 flex gap-4">
@@ -99,13 +112,16 @@
                     <p>3. for i from 0 to len(list):</p>
                     <p>4. return i</p>
                 </div>
-                <button onclick="toggleAnswer('starter-ans')" class="mt-4 text-xs text-blue-600 font-bold uppercase tracking-wider hover:underline">Show Logic</button>
+                <button onclick="toggleAnswer('starter-ans')"
+                    class="mt-4 text-xs text-blue-600 font-bold uppercase tracking-wider hover:underline">Show
+                    Logic</button>
                 <div id="starter-ans" class="hidden-answer p-2 mt-2 text-xs">Order: 3 → 2 → 4 → 1</div>
             </div>
 
             <div class="card p-6 border-t-4 border-red-500 md:col-span-2">
                 <h3 class="font-bold text-lg mb-2">The "Red Zone" Focus</h3>
-                <p class="text-sm">We are targeting <strong>Midpoint Logic</strong> and <strong>Efficiency Tracing</strong>. These are high-mark areas where students often lose "off-by-one" marks.</p>
+                <p class="text-sm">We are targeting <strong>Midpoint Logic</strong> and <strong>Efficiency
+                        Tracing</strong>. These are high-mark areas where students often lose "off-by-one" marks.</p>
                 <div class="mt-4 flex gap-2 flex-wrap">
                     <span class="algorithm-tag">Binary Midpoints</span>
                     <span class="algorithm-tag">Bubble Pass 1</span>
@@ -117,7 +133,7 @@
         <!-- Searching Algorithms -->
         <section id="searching" class="space-y-6">
             <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2">1. Searching Algorithms</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Linear -->
                 <div class="card p-6">
@@ -125,7 +141,8 @@
                         <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
                         <h3 class="font-bold text-xl">Linear Search</h3>
                     </div>
-                    <p class="text-sm mb-4">Checks every element in the list one by one until the target is found or the end is reached.</p>
+                    <p class="text-sm mb-4">Checks every element in the list one by one until the target is found or the
+                        end is reached.</p>
                     <ul class="text-sm space-y-2 list-disc pl-5 text-slate-600">
                         <li>Works on <strong>unsorted</strong> lists.</li>
                         <li>Efficiency: <strong>O(n)</strong> - Time taken increases directly with list size.</li>
@@ -138,10 +155,12 @@
                         <div class="w-3 h-3 bg-indigo-600 rounded-full"></div>
                         <h3 class="font-bold text-xl">Binary Search</h3>
                     </div>
-                    <p class="text-sm mb-4">Uses a "Divide and Conquer" strategy by repeatedly halving the search area.</p>
+                    <p class="text-sm mb-4">Uses a "Divide and Conquer" strategy by repeatedly halving the search area.
+                    </p>
                     <div class="bg-white p-3 rounded border border-blue-200 mb-4">
                         <p class="text-xs font-bold text-indigo-700 uppercase mb-1">Mandatory Requirement:</p>
-                        <p class="text-sm font-medium">The list MUST be <strong>sorted</strong> before a binary search can begin.</p>
+                        <p class="text-sm font-medium">The list MUST be <strong>sorted</strong> before a binary search
+                            can begin.</p>
                     </div>
                 </div>
             </div>
@@ -149,8 +168,9 @@
             <!-- Midpoint Drill -->
             <div class="card p-8 bg-slate-900 text-white">
                 <h3 class="text-xl font-bold mb-4 text-blue-400">Midpoint Logic Drill</h3>
-                <p class="mb-6 text-slate-300 italic text-sm">Formula: midpoint = (low + high) // 2 (Integer Division)</p>
-                
+                <p class="mb-6 text-slate-300 italic text-sm">Formula: midpoint = (low + high) // 2 (Integer Division)
+                </p>
+
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="bg-slate-800 p-4 rounded text-center border border-slate-700">
                         <p class="text-xs text-slate-400">List Length: 7</p>
@@ -168,21 +188,23 @@
                         <p class="mt-2 text-blue-400 font-bold">Midpoint: 4</p>
                     </div>
                 </div>
-                <p class="mt-6 text-xs text-red-400 font-bold">EXAMINER TIP: Ensure you update Low to (Mid + 1) or High to (Mid - 1) to avoid infinite loops.</p>
+                <p class="mt-6 text-xs text-red-400 font-bold">EXAMINER TIP: Ensure you update Low to (Mid + 1) or High
+                    to (Mid - 1) to avoid infinite loops.</p>
             </div>
         </section>
 
         <!-- Sorting Algorithms -->
         <section id="sorting" class="space-y-6">
             <h2 class="text-2xl font-bold border-b-2 border-slate-200 pb-2">2. Sorting Algorithms</h2>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Bubble Sort -->
                 <div class="space-y-4">
                     <div class="card p-6">
                         <h3 class="font-bold text-xl mb-2 text-orange-600">Bubble Sort</h3>
-                        <p class="text-sm mb-4">Compares <strong>adjacent</strong> pairs and swaps them if they are in the wrong order. Smallest values "bubble" to the start (or largest to the end).</p>
-                        
+                        <p class="text-sm mb-4">Compares <strong>adjacent</strong> pairs and swaps them if they are in
+                            the wrong order. Smallest values "bubble" to the start (or largest to the end).</p>
+
                         <div class="bg-slate-50 p-4 rounded text-sm border-l-4 border-orange-500">
                             <p class="font-bold mb-1 text-slate-700">Pass 1 Example:</p>
                             <code class="block bg-white p-2 rounded border">[5, 1, 4, 2]</code>
@@ -200,8 +222,9 @@
                 <div class="space-y-4">
                     <div class="card p-6 h-full">
                         <h3 class="font-bold text-xl mb-2 text-emerald-600">Merge Sort</h3>
-                        <p class="text-sm mb-4">A "Divide and Conquer" algorithm. It recursively splits the list into individual elements and then merges them back in order.</p>
-                        
+                        <p class="text-sm mb-4">A "Divide and Conquer" algorithm. It recursively splits the list into
+                            individual elements and then merges them back in order.</p>
+
                         <div class="flex flex-col items-center gap-2 mt-4">
                             <div class="flex gap-2 text-xs font-mono">
                                 <span class="bg-emerald-100 p-1 rounded px-2">[38, 27, 43, 3]</span>
@@ -282,15 +305,20 @@
                         <span>2 Marks</span>
                     </div>
                     <div class="p-6 flex-grow">
-                        <p class="text-slate-800 font-medium mb-4">State two differences between bubble sort and merge sort.</p>
+                        <p class="text-slate-800 font-medium mb-4">State two differences between bubble sort and merge
+                            sort.</p>
                         <div class="bg-amber-50 border border-amber-200 p-3 rounded text-xs text-amber-800 mb-4">
                             💡 Use the words 'whereas' or 'however' to compare. Give 2 distinct points.
                         </div>
-                        <button onclick="toggleAnswer('q1-ans')" class="text-xs font-bold text-teal-600 uppercase tracking-widest hover:underline">Reveal Answer</button>
+                        <button onclick="toggleAnswer('q1-ans')"
+                            class="text-xs font-bold text-teal-600 uppercase tracking-widest hover:underline">Reveal
+                            Answer</button>
                         <div id="q1-ans" class="hidden-answer p-4 mt-3 text-sm">
                             <ul class="list-disc pl-4 space-y-1">
-                                <li>Bubble sort compares adjacent items <strong>whereas</strong> merge sort is a divide-and-conquer algorithm that splits the list.</li>
-                                <li>Bubble sort has a worst-case efficiency of O(n²) <strong>however</strong> merge sort is more efficient with O(n log n).</li>
+                                <li>Bubble sort compares adjacent items <strong>whereas</strong> merge sort is a
+                                    divide-and-conquer algorithm that splits the list.</li>
+                                <li>Bubble sort has a worst-case efficiency of O(n²) <strong>however</strong> merge sort
+                                    is more efficient with O(n log n).</li>
                             </ul>
                         </div>
                     </div>
@@ -303,11 +331,15 @@
                         <span>4 Marks</span>
                     </div>
                     <div class="p-6 flex-grow">
-                        <p class="text-slate-800 font-medium mb-4">The list <code class="bg-slate-100 px-1">[6, 2, 8, 3, 5]</code> needs to be sorted using bubble sort. Show the state after each pass and explain early termination.</p>
+                        <p class="text-slate-800 font-medium mb-4">The list <code
+                                class="bg-slate-100 px-1">[6, 2, 8, 3, 5]</code> needs to be sorted using bubble sort.
+                            Show the state after each pass and explain early termination.</p>
                         <div class="bg-amber-50 border border-amber-200 p-3 rounded text-xs text-amber-800 mb-4">
                             💡 Show every step. 1 mark for each correct pass, 1 mark for the explanation.
                         </div>
-                        <button onclick="toggleAnswer('q2-ans')" class="text-xs font-bold text-blue-600 uppercase tracking-widest hover:underline">Reveal Answer</button>
+                        <button onclick="toggleAnswer('q2-ans')"
+                            class="text-xs font-bold text-blue-600 uppercase tracking-widest hover:underline">Reveal
+                            Answer</button>
                         <div id="q2-ans" class="hidden-answer p-4 mt-3 text-sm">
                             <p class="font-bold mb-1">Passes:</p>
                             <ol class="list-decimal pl-4 space-y-1 mb-3">
@@ -315,7 +347,8 @@
                                 <li>[2, 3, 5, 6, 8]</li>
                                 <li>[2, 3, 5, 6, 8] (Final check)</li>
                             </ol>
-                            <p><strong>Explanation:</strong> The algorithm stops early because a full pass (Pass 3) occurred with <strong>no swaps</strong>, indicating the list is sorted.</p>
+                            <p><strong>Explanation:</strong> The algorithm stops early because a full pass (Pass 3)
+                                occurred with <strong>no swaps</strong>, indicating the list is sorted.</p>
                         </div>
                     </div>
                 </div>
@@ -327,16 +360,21 @@
                         <span>3 Marks</span>
                     </div>
                     <div class="p-6 flex-grow">
-                        <p class="text-slate-800 font-medium mb-4">A program crashes when the user enters 0. Identify the type of error and explain why it occurs. Describe prevention.</p>
+                        <p class="text-slate-800 font-medium mb-4">A program crashes when the user enters 0. Identify
+                            the type of error and explain why it occurs. Describe prevention.</p>
                         <div class="bg-amber-50 border border-amber-200 p-3 rounded text-xs text-amber-800 mb-4">
                             💡 Runtime error → cause → prevention (input validation / conditional check).
                         </div>
-                        <button onclick="toggleAnswer('q3-ans')" class="text-xs font-bold text-orange-600 uppercase tracking-widest hover:underline">Reveal Answer</button>
+                        <button onclick="toggleAnswer('q3-ans')"
+                            class="text-xs font-bold text-orange-600 uppercase tracking-widest hover:underline">Reveal
+                            Answer</button>
                         <div id="q3-ans" class="hidden-answer p-4 mt-3 text-sm">
                             <ul class="space-y-2">
                                 <li><strong>Type:</strong> Runtime Error (Division by Zero).</li>
-                                <li><strong>Cause:</strong> Attempting to divide a number by zero, which is mathematically undefined and crashes the process.</li>
-                                <li><strong>Prevention:</strong> Use input validation (e.g., <code>if divisor != 0:</code>) to check the value before the division.</li>
+                                <li><strong>Cause:</strong> Attempting to divide a number by zero, which is
+                                    mathematically undefined and crashes the process.</li>
+                                <li><strong>Prevention:</strong> Use input validation (e.g.,
+                                    <code>if divisor != 0:</code>) to check the value before the division.</li>
                             </ul>
                         </div>
                     </div>
@@ -349,24 +387,31 @@
                         <span>4 Marks</span>
                     </div>
                     <div class="p-6 flex-grow">
-                        <p class="text-slate-800 font-medium mb-4">Explain why merge sort is more efficient than bubble sort for 10,000 items. Use Big O notation.</p>
+                        <p class="text-slate-800 font-medium mb-4">Explain why merge sort is more efficient than bubble
+                            sort for 10,000 items. Use Big O notation.</p>
                         <div class="bg-amber-50 border border-amber-200 p-3 rounded text-xs text-amber-800 mb-4">
-                            💡 O(n log n) vs O(n²). For n=10,000: 10,000² = 100 million vs 10,000 × 14 ≈ 140,000 operations.
+                            💡 O(n log n) vs O(n²). For n=10,000: 10,000² = 100 million vs 10,000 × 14 ≈ 140,000
+                            operations.
                         </div>
-                        <button onclick="toggleAnswer('q4-ans')" class="text-xs font-bold text-red-600 uppercase tracking-widest hover:underline">Reveal Answer</button>
+                        <button onclick="toggleAnswer('q4-ans')"
+                            class="text-xs font-bold text-red-600 uppercase tracking-widest hover:underline">Reveal
+                            Answer</button>
                         <div id="q4-ans" class="hidden-answer p-4 mt-3 text-sm">
-                            <p>Merge sort has a time complexity of <strong>O(n log n)</strong> whereas bubble sort is <strong>O(n²)</strong>.</p>
+                            <p>Merge sort has a time complexity of <strong>O(n log n)</strong> whereas bubble sort is
+                                <strong>O(n²)</strong>.</p>
                             <p class="mt-2 text-xs bg-slate-100 p-2 rounded font-mono">
                                 Bubble: 10,000² = 100,000,000 ops<br>
                                 Merge: 10,000 × 13.3 ≈ 133,000 ops
                             </p>
-                            <p class="mt-2">This means merge sort performs significantly fewer operations as the dataset grows large, resulting in much faster execution.</p>
+                            <p class="mt-2">This means merge sort performs significantly fewer operations as the dataset
+                                grows large, resulting in much faster execution.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-slate-900 text-white p-4 rounded-lg text-center text-sm font-bold flex items-center justify-center gap-4">
+            <div
+                class="bg-slate-900 text-white p-4 rounded-lg text-center text-sm font-bold flex items-center justify-center gap-4">
                 <span>⏱ 25 minutes</span>
                 <span>|</span>
                 <span>Work independently in exam conditions</span>
@@ -395,4 +440,5 @@
         }
     </script>
 </body>
+
 </html>
