@@ -104,21 +104,32 @@
 <body class="pb-20">
 
     <!-- Navigation -->
-    <header class="header-gradient text-white p-6 shadow-lg mb-8 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4">
-                <a href="index.html" class="text-2xl hover:scale-110 transition">🏠</a>
-                <div>
-                    <h1 class="text-3xl font-bold italic">Networks & Protocols Revision</h1>
-                </div>
+    <header class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+                <a href="index.html" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
+                    aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="index.html#revision" class="hover:text-sky-700">Revision</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-800 font-semibold">Networks</span>
             </div>
-            <nav class="mt-4 md:mt-0 flex gap-4 text-sm">
-                <a href="#concepts" class="hover:underline">Concepts</a>
-                <a href="#tcp-ip" class="hover:underline">TCP/IP Model</a>
-                <a href="#activities" class="hover:underline">Activities</a>
-                <a href="#maths" class="hover:underline">Maths Drill</a>
+            <!-- In-page section links -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#concepts" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Concepts</a>
+                <a href="#tcp-ip" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">TCP/IP Model</a>
+                <a href="#activities" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Activities</a>
+                <a href="#maths" class="bg-blue-600 text-white px-3 py-1.5 rounded-md font-bold text-xs hover:bg-blue-700 transition">Maths Drill</a>
             </nav>
         </div>
+    </header>
+
+    <header class="max-w-5xl mx-auto px-4 py-8 text-center">
+        <h1 class="text-4xl font-bold text-slate-900 italic uppercase">Networks & Protocols</h1>
+        <p class="mt-2 text-slate-600 italic">Topic 4: Communication & Layered Models</p>
     </header>
 
     <main class="max-w-5xl mx-auto px-4 space-y-12">

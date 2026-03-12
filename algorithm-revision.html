@@ -81,22 +81,32 @@
 <body class="pb-12">
 
     <!-- Navigation -->
-    <header class="header-gradient text-white p-6 shadow-lg mb-8 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4">
-                <a href="index.html" class="text-2xl hover:scale-110 transition">🏠</a>
-                <div>
-                    <h1 class="text-3xl font-bold italic">Algorithms - Searching & Sorting</h1>
-
-                </div>
+    <header class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+                <a href="index.html" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
+                    aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
+                <span class="text-slate-300">/</span>
+                <a href="index.html#revision" class="hover:text-sky-700">Revision</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-800 font-semibold">Algorithms</span>
             </div>
-            <nav class="mt-4 md:mt-0 flex gap-4">
-                <a href="#searching" class="hover:underline">Searching</a>
-                <a href="#sorting" class="hover:underline">Sorting</a>
-                <a href="#efficiency" class="hover:underline">Efficiency</a>
-                <a href="#exam-drill" class="bg-white text-blue-900 px-4 py-2 rounded-lg font-bold">Exam Drill</a>
+            <!-- In-page section links -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#searching" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Searching</a>
+                <a href="#sorting" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Sorting</a>
+                <a href="#efficiency" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Efficiency</a>
+                <a href="#exam-drill" class="bg-blue-600 text-white px-3 py-1.5 rounded-md font-bold text-xs hover:bg-blue-700 transition">Exam Drill</a>
             </nav>
         </div>
+    </header>
+
+    <header class="max-w-5xl mx-auto px-4 py-8 text-center">
+        <h1 class="text-4xl font-bold text-slate-900 italic">Algorithms - Searching & Sorting</h1>
+        <p class="mt-2 text-slate-600 italic">Revision Topic 1: Efficiency & Trace Logic</p>
     </header>
 
     <main class="max-w-5xl mx-auto px-4 space-y-12">
