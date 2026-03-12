@@ -39,21 +39,28 @@
 
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Sticky header -->
+    <!-- Navigation -->
     <header class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 text-sm text-slate-600">
-                <span aria-hidden="true">🎃</span>
+                <a href="index.html" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
+                    aria-label="Home">
+                    <span aria-hidden="true">🏠</span>
+                </a>
                 <span class="text-slate-300">/</span>
-                <span class="text-slate-800 font-semibold">Halloween Turtle Challenge</span>
+                <a href="index.html#projects" class="hover:text-sky-700">Projects</a>
+                <span class="text-slate-300">/</span>
+                <span class="text-slate-800 font-semibold">Halloween Turtle</span>
             </div>
+            <!-- In-page section links -->
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#intro" class="text-slate-600 hover:text-sky-600 font-semibold">Intro</a>
-                <a href="#partA" class="text-slate-600 hover:text-sky-600 font-semibold">Part A</a>
-                <a href="#partB" class="text-slate-600 hover:text-sky-600 font-semibold">Part B</a>
-                <a href="#check" class="text-slate-600 hover:text-sky-600 font-semibold">Check</a>
+                <a href="#intro" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Intro</a>
+                <a href="#partA" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Part A</a>
+                <a href="#partB" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Part B</a>
+                <a href="#check" class="text-slate-600 hover:text-sky-600 font-semibold text-sm">Check</a>
                 <a href="python_playground.html"
-                    class="text-sky-600 hover:text-sky-800 font-semibold border-l pl-6 border-slate-300">Python
+                    class="text-sky-600 hover:text-sky-800 font-bold border-l pl-6 border-slate-300 text-sm">Python
                     Playground 🐍</a>
             </nav>
         </div>
