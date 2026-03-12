@@ -57,26 +57,27 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- Sticky Header -->
-    <header class="sticky top-0 bg-slate-50/90 backdrop-blur-lg z-20 border-b border-slate-200 shadow-sm">
+    <!-- Navigation -->
+    <header class="sticky top-0 bg-slate-50/80 backdrop-blur-lg z-20 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-            <!-- Breadcrumbs (Top-left) -->
+            <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 text-sm text-slate-600">
-                <a href="./" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
+                <a href="index.html" class="inline-flex items-center text-sky-700 hover:text-sky-800 font-semibold"
                     aria-label="Home">
                     <span aria-hidden="true">🏠</span>
                 </a>
                 <span class="text-slate-300">/</span>
-                <a href="./#projects" class="hover:text-sky-700">Projects</a>
+                <a href="index.html#projects" class="hover:text-sky-700">Projects</a>
                 <span class="text-slate-300">/</span>
-                <span class="text-slate-800 font-semibold">🐢Python Turtle</span>
+                <span class="text-slate-800 font-semibold">Python Turtle</span>
             </div>
-            <!-- In-page section links (Right) -->
+            <!-- In-page section links -->
             <nav class="hidden md:flex items-center gap-6">
-                <a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold transition">Theory</a>
-                <a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold transition">Debugging</a>
-                <a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold transition">Coding</a>
+                <a href="#part1" class="text-slate-600 hover:text-sky-600 font-semibold text-sm transition">Theory</a>
+                <a href="#part2" class="text-slate-600 hover:text-sky-600 font-semibold text-sm transition">Debugging</a>
+                <a href="#part3" class="text-slate-600 hover:text-sky-600 font-semibold text-sm transition">Coding</a>
                 <a href="python_playground.html"
-                    class="text-sky-600 hover:text-sky-800 font-semibold transition border-l pl-6 border-slate-300">Python
+                    class="text-sky-600 hover:text-sky-800 font-bold transition border-l pl-6 border-slate-300 text-sm">Python
                     Playground 🐍</a>
             </nav>
         </div>
@@ -84,13 +85,13 @@
 
     <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <header class="text-center py-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900">Python Turtle Revision 🐢</h1>
-            <p class="mt-4 text-lg text-slate-600">Prepare for the assessment: Coordinates, Loops, Lists & Functions.
+        <header class="max-w-5xl mx-auto px-4 py-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 italic">Python Turtle Revision 🐢</h1>
+            <p class="mt-4 text-lg text-slate-600 italic">Prepare for the assessment: Coordinates, Loops, Lists & Functions.
             </p>
-            <div class="mt-6 max-w-md mx-auto">
+            <div class="mt-8 max-w-md mx-auto">
                 <input type="text" id="student-name"
-                    class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"
+                    class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"
                     placeholder="Enter your full name for the report...">
             </div>
         </header>
